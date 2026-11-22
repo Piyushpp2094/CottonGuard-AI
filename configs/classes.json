@@ -1,0 +1,13 @@
+{
+  "num_classes": 7,
+  "classes": [
+    {"id": 0, "name": "Bacterial Blight", "filename_prefix": "BBC"},
+    {"id": 1, "name": "Curl Virus", "filename_prefix": "CV"},
+    {"id": 2, "name": "Healthy Leaf", "filename_prefix": "HL"},
+    {"id": 3, "name": "Herbicide Growth Damage", "filename_prefix": "HGD"},
+    {"id": 4, "name": "Leaf Hopper Jassids", "filename_prefix": "LHJ"},
+    {"id": 5, "name": "Leaf Redding", "filename_prefix": "LR"},
+    {"id": 6, "name": "Leaf Variegation", "filename_prefix": "LV"}
+  ],
+  "note": "Folder names provide provisional labels only. Biological label correctness requires human/expert review."
+}

@@ -1,0 +1,112 @@
+# ==============================================================================
+# CottonGuard AI — Comprehensive Production .gitignore
+# ==============================================================================
+
+# Python bytecode & runtime
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & type checking caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# Secrets, private configuration & tokens
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+token.json
+
+# SQLite databases & runtime storage
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+cotton_leaf_ai.db
+
+# Frontend build outputs & dependencies
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.vite/
+coverage/
+.npm
+
+# IDE & OS-specific files
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs & temporary files
+*.log
+logs/
+temp/
+tmp/
+*.tmp
+prompt_dump.txt
+scratch/
+scratch_*.py
+
+# Dataset images, raw media & CVAT exports (>100MB collections & temporary exports)
+data/tmp_*
+data/cvat_derived_export/
+data/cvat_exports/
+data/backup/
+data/**/images/
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+*.zip
+dataset/
+
+# Model checkpoints & large binary weights (>100MB GitHub limit)
+artifacts/**
+!artifacts/.gitkeep
+!artifacts/model_registry.json
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.h5
+*.safetensors
+*.bin

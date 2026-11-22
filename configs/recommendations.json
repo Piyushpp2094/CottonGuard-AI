@@ -1,0 +1,140 @@
+{
+  "version": "1.0",
+  "disclaimer": "Agricultural recommendations are provided for advisory and decision-support purposes only. They do not constitute an automated chemical prescription. Always consult your local Krishi Vigyan Kendra (KVK), state agricultural university extension officer, or certified agronomist before applying any crop protection chemical.",
+  "classes": {
+    "Bacterial Blight": {
+      "pathogen_or_cause": "Xanthomonas citri pv. malvacearum (Bacterium)",
+      "symptoms": [
+        "Small, water-soaked, angular spots bounded by leaf veinlets.",
+        "Lesions turn reddish-brown to dark brown or black on both surfaces.",
+        "Under severe infection, lesions coalesce causing premature defoliation."
+      ],
+      "first_steps": [
+        "Inspect both upper and lower leaf surfaces across 20 randomly selected plants.",
+        "Avoid field operations (weeding, intercultivation) when the crop foliage is wet to prevent bacterial spread.",
+        "Collect and destroy heavily infected fallen leaves and plant debris to minimize inoculum carryover.",
+        "Contact the nearest Krishi Vigyan Kendra (KVK) or Agriculture Extension Officer to verify symptoms and review seed source history."
+      ],
+      "preventive_practices": [
+        "Use certified, acid-delinted seeds treated with recommended bactericides prior to sowing.",
+        "Adopt crop rotation with non-host crops (e.g., sorghum, maize) where bacterial blight is endemic.",
+        "Avoid excessive nitrogenous fertilization which promotes succulent, highly susceptible vegetative growth."
+      ],
+      "avoid": "Do not purchase or spray unregistered antibiotics or chemicals based solely on smartphone image output."
+    },
+    "Curl Virus": {
+      "pathogen_or_cause": "Cotton Leaf Curl Virus (CLCuV, Begomovirus, transmitted by Whitefly Bemisia tabaci)",
+      "symptoms": [
+        "Upward or downward curling of leaf margins.",
+        "Thickening of veins on the lower leaf surface, often forming small enations (leaf-like outgrowths).",
+        "Stunting of the plant and reduced boll formation if infected at early vegetative stage."
+      ],
+      "first_steps": [
+        "Scout the undersides of leaves in the top canopy for whitefly adults and nymphs.",
+        "Rogue and safely destroy severely infected plants during early vegetative phase (first 45 days) to reduce virus reservoirs.",
+        "Remove alternate weed hosts (such as Parthenium, Sida, Xanthium, and Abutilon) from field bunds and borders.",
+        "Consult extension entomologists for whitefly population assessment and local vector management advisories."
+      ],
+      "preventive_practices": [
+        "Sow recommended CLCuV-resistant or tolerant cotton hybrids suited to your agro-climatic zone.",
+        "Install yellow sticky traps (10 to 12 traps per hectare) to monitor and suppress whitefly vector populations.",
+        "Avoid staggered sowing in adjoining plots to break the continuous insect lifecycle."
+      ],
+      "avoid": "Do not expect chemical fungicides to cure viral infections; management relies on vector suppression, resistant varieties, and cultural hygiene."
+    },
+    "Healthy Leaf": {
+      "pathogen_or_cause": "No target disease symptom detected (Physiologically Normal Cotton Foliage)",
+      "symptoms": [
+        "Uniform green lamina with normal vein architecture and no noticeable necrotic lesions or curling."
+      ],
+      "first_steps": [
+        "Continue routine weekly field scouting, examining lower, middle, and upper leaf canopies.",
+        "Monitor soil moisture levels and optimize irrigation scheduling to prevent water stress or waterlogging.",
+        "Maintain balanced nutrient management based on soil health card recommendations."
+      ],
+      "preventive_practices": [
+        "Inspect plant terminals and leaf undersides periodically for early sucking pest presence (jassids, thrips, aphids).",
+        "Preserve natural beneficial predators in the field, including ladybird beetles, chrysoperla, and spiders."
+      ],
+      "avoid": "Do not apply preventive pesticide sprays on healthy foliage; unnecessary chemical applications harm beneficial predator populations and increase input costs."
+    },
+    "Herbicide Growth Damage": {
+      "pathogen_or_cause": "Abiotic injury (Herbicide drift, tank contamination, or carryover residue)",
+      "symptoms": [
+        "Leaf puckering, strap-like elongation, cupping, or severe epinasty (downward twisting of petioles).",
+        "Interveinal chlorosis, marginal scorching, or stunted shoot terminals.",
+        "Injury symptoms often localized along field margins bordering treated non-target fields or along spray equipment passes."
+      ],
+      "first_steps": [
+        "Review recent spraying logs: note dates, chemicals, dosage, wind speed, and direction during neighboring applications.",
+        "Inspect field spatial patterns to determine whether damage follows spray swaths or windward edges.",
+        "Thoroughly inspect spray tanks, hoses, and nozzles for residual herbicide deposits if spraying was done recently.",
+        "Provide light irrigation and allow 10 to 14 days to evaluate whether emerging apical growth recovers."
+      ],
+      "preventive_practices": [
+        "Use dedicated sprayers for herbicides and insecticides/fungicides, or triple-rinse equipment with ammonia/detergent solutions.",
+        "Fit drift-reduction nozzles and operate during calm morning hours with wind speeds below 10 km/h.",
+        "Maintain buffer borders between herbicide-treated crops and sensitive broadleaf cotton."
+      ],
+      "avoid": "Do not attempt corrective sprays with unverified foliar chemical mixtures, which can exacerbate phytotoxicity on stressed foliage."
+    },
+    "Leaf Hopper Jassids": {
+      "pathogen_or_cause": "Amrasca biguttula biguttula (Sucking Pest)",
+      "symptoms": [
+        "First sign: Marginal yellowing of leaves in the upper and middle canopy.",
+        "Second sign: Downward curling of leaf margins and bronze/reddish-brown discoloration ('hopper burn').",
+        "Severe stage: Leaf margins become necrotic, dry, and brittle, leading to premature shedding."
+      ],
+      "first_steps": [
+        "Scout the underside of 3 leaves (one each from top, middle, and bottom canopy) on 20 randomly chosen plants across the field.",
+        "Verify against the ICAR-CICR Economic Threshold Level (ETL): 2 nymphs or adults per leaf.",
+        "Erect yellow sticky traps (10 per hectare) at canopy level to monitor pest pressure and direction of influx.",
+        "Seek advice from the local agriculture department regarding currently registered, selective sucking-pest interventions if populations exceed ETL."
+      ],
+      "preventive_practices": [
+        "Adopt jassid-tolerant cotton cultivars characterized by optimal leaf hairiness (pubescence).",
+        "Avoid excessive or late application of synthetic nitrogenous fertilizers, which creates succulent, attractive foliage for jassids.",
+        "Conserve natural biological control agents such as predatory spiders, geocoris bugs, and green lacewing larvae."
+      ],
+      "avoid": "Do not initiate chemical insecticide sprays based solely on photographic symptoms without confirming nymph/adult counts exceed the Economic Threshold Level (ETL = 2 insects/leaf)."
+    },
+    "Leaf Redding": {
+      "pathogen_or_cause": "Physiological / Abiotic Disorder (Nutrient deficiency, low temperature, or waterlogging stress)",
+      "symptoms": [
+        "Purplish-red to brick-red discoloration of mature leaves while veins may remain greenish in early stages.",
+        "Typically intensifies during heavy boll development, sudden drop in night temperatures, or root waterlogging.",
+        "Affected leaves synthesize anthocyanin pigments in response to impaired carbohydrate translocation."
+      ],
+      "first_steps": [
+        "Inspect field drainage and soil moisture conditions; evaluate if recent heavy rainfall or irrigation caused waterlogging.",
+        "Examine the root system for healthy white feeder roots versus root decay from poor soil aeration.",
+        "Review nitrogen, potassium, and magnesium application history; assess whether high boll load is depleting foliar nutrients.",
+        "Consult local extension specialists for soil or leaf petiole testing before assuming a fungal or bacterial infection."
+      ],
+      "preventive_practices": [
+        "Ensure prompt field surface drainage to avoid prolonged water stagnation around the root zone.",
+        "If diagnosed by extension authorities as magnesium/nitrogen depletion, spray 1% magnesium sulphate (MgSO4) + 1% urea at early boll development as recommended by ICAR-CICR.",
+        "Apply well-decomposed farmyard manure (FYM) to improve soil physical condition and nutrient retention."
+      ],
+      "avoid": "Do not spray broad-spectrum insecticides or fungicides; reddening is fundamentally a physiological/nutritional response rather than an infectious pathogen."
+    },
+    "Leaf Variegation": {
+      "pathogen_or_cause": "Genetic chimera, minor viral variegation, or micronutrient mosaic",
+      "symptoms": [
+        "Irregular mosaic patches of pale green, white, or cream tissue interspersed with normal green lamina.",
+        "Symptom patterns often restricted to isolated branches or individual plants rather than rapid epidemic spread."
+      ],
+      "first_steps": [
+        "Check whether variegation is present uniformly across new and old leaves or confined to a single branch.",
+        "Compare adjacent plants in the same row to ascertain whether symptoms are spreading contagiously.",
+        "Photograph whole plants and document variety seed lot; share with the district agricultural officer.",
+        "Observe over 7 to 10 days to distinguish stable genetic chimeras from active infectious mosaic patterns."
+      ],
+      "preventive_practices": [
+        "Procure seeds exclusively from certified, quality-assured seed producers.",
+        "Practice rogueing only if symptoms resemble viral mosaic and show evidence of transmitting to adjacent plants."
+      ],
+      "avoid": "Do not apply chemical fertilizers or pesticides indiscriminately; variegation on isolated leaves does not warrant chemical intervention."
+    }
+  }
+}

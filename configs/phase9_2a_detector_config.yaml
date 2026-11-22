@@ -1,0 +1,109 @@
+# CottonGuard AI — Phase 9.2A Faster R-CNN Detector Configuration
+# Architecture: TorchVision Faster R-CNN ResNet-50 FPN V2
+# Target GPU: NVIDIA GeForce RTX 3050 Laptop GPU (6 GB VRAM)
+# License: Permissive BSD-3-Clause / Apache-2.0 (Zero copyleft AGPL/GPL dependencies)
+
+experiment:
+  name: "phase9_2_faster_rcnn_resnet50_v2"
+  phase: "Phase 9.2A Preparation & Dry Run"
+  reproducibility_seed: 42
+  deterministic: true
+
+model:
+  architecture: "fasterrcnn_resnet50_fpn_v2"
+  torchvision_version: "0.29.2+cu132"
+  weights_provenance: "FasterRCNN_ResNet50_FPN_V2_Weights.COCO_V1"
+  weights_file: "fasterrcnn_resnet50_fpn_v2_coco-dd69338a.pth"
+  weights_sha256: "DD69338A24B8D7381807E247652BDC356325BCBAF1CD3E092E00E0A1A58706BF"
+  num_classes: 7
+  background_label: 0
+  trainable_backbone_layers: 3  # Train res3, res4, res5; freeze res1, res2
+  rpn_pre_nms_top_n_train: 2000
+  rpn_post_nms_top_n_train: 1000
+  rpn_pre_nms_top_n_test: 1000
+  rpn_post_nms_top_n_test: 1000
+  rpn_nms_thresh: 0.7
+  box_score_thresh: 0.05
+  box_nms_thresh: 0.5
+  box_detections_per_img: 100
+
+class_mapping:
+  0: "background"
+  1: "Bacterial Blight"
+  2: "Curl Virus"
+  3: "Herbicide Growth Damage"
+  4: "Leaf Hopper Jassids"
+  5: "Leaf Redding"
+  6: "Leaf Variegation"
+
+dataset:
+  train_manifest: "artifacts/manifests/combined_pilot_manifest.csv"
+  images_dir: "data/detection/images"
+  labels_dir: "data/detection/labels"
+  coco_train_json: "data/detection/coco_train.json"
+  coco_val_json: "data/detection/coco_val.json"
+  image_size: [800, 800]
+  train_samples: 35
+  val_samples: 15
+  total_bounding_boxes: 514
+  train_bounding_boxes: 371
+  val_bounding_boxes: 143
+  healthy_control_samples: 7
+  healthy_bounding_boxes: 0
+  empty_healthy_targets: true
+
+training:
+  batch_size: 2
+  num_workers: 0  # 0 on Windows to avoid multi-processing socket overhead
+  max_epochs: 30
+  optimizer:
+    type: "SGD"
+    lr: 0.005
+    momentum: 0.9
+    weight_decay: 0.0005
+  lr_scheduler:
+    type: "WarmupCosineAnnealingLR"
+    warmup_epochs: 3
+    warmup_steps: 54  # 3 epochs * 18 batches/epoch
+    total_steps: 540  # 30 epochs * 18 batches/epoch
+    warmup_factor: 0.001
+    base_lr: 0.005
+    min_lr: 0.00001
+    stepping: "per_batch"
+    amp_skipped_step_protection: true
+  gradient_clipping:
+    enabled: true
+    max_norm: 10.0
+  mixed_precision:
+    enabled: true
+    dtype: "float16"
+    grad_scaler: true
+    grad_scaler_init_scale: 1024.0  # Numerically calibrated to eliminate FP16 box regression overflow
+  loss_components:
+    - "loss_classifier"  # Fast R-CNN classification
+    - "loss_box_reg"     # Fast R-CNN box regression
+    - "loss_objectness"  # RPN foreground vs background
+    - "loss_rpn_box_reg" # RPN proposal box regression
+
+hardware:
+  target_gpu: "NVIDIA GeForce RTX 3050 Laptop GPU"
+  total_vram_gb: 6.0
+  expected_vram_peak_gb: 3.2
+  oom_handling:
+    catch_cuda_oom: true
+    clear_cache_on_error: true
+    cpu_fallback_eval: true
+    silent_training_fallback: false
+
+evaluation:
+  eval_batch_size: 1
+  iou_threshold_primary: 0.50
+  iou_threshold_range: [0.50, 0.95, 0.05]
+  checkpoint_policy:
+    primary_metric: "val_map50"
+    secondary_metric: "val_composite_loss"
+    mode: "max"
+    save_best_only: true
+    best_checkpoint_path: "artifacts/checkpoints/detection/best_faster_rcnn.pt"
+    latest_checkpoint_path: "artifacts/checkpoints/detection/latest_faster_rcnn.pt"
+    early_stopping_patience: 5

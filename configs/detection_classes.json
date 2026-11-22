@@ -1,0 +1,13 @@
+{
+  "objective": "Localize visible symptomatic diseased leaf regions from verified CVAT Diseased_Region polygons/boxes. Healthy Leaf samples contain zero diseased target boxes.",
+  "num_classes": 6,
+  "license_note": "Pure PyTorch Anchor-Free YOLO architecture (BSD-3-Clause / Apache-2.0 permissive; excludes AGPL-3.0/GPL-3.0 dependencies).",
+  "classes": [
+    {"id": 0, "name": "Bacterial Blight", "cvat_attribute_value": "Bacterial Blight", "color_hex": "#EF4444"},
+    {"id": 1, "name": "Curl Virus", "cvat_attribute_value": "Curl Virus", "color_hex": "#F97316"},
+    {"id": 2, "name": "Herbicide Growth Damage", "cvat_attribute_value": "Herbicide Growth Damage", "color_hex": "#EAB308"},
+    {"id": 3, "name": "Leaf Hopper Jassids", "cvat_attribute_value": "Leaf Hopper Jassids", "color_hex": "#8B5CF6"},
+    {"id": 4, "name": "Leaf Redding", "cvat_attribute_value": "Leaf Redding", "color_hex": "#EC4899"},
+    {"id": 5, "name": "Leaf Variegation", "cvat_attribute_value": "Leaf Variegation", "color_hex": "#06B6D4"}
+  ]
+}

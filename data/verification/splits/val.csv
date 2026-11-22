@@ -1,0 +1,629 @@
+filepath,class_name,label,sub_category,split
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00264.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0029.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00037.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00272.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00397.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_01a3cf3f-94c1-44d5-8972-8c509d62558e___GCREC_Bact.Sp 3396.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00004.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0164.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00415.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00113.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00016.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0060.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0191.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00033.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00247.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00009.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00073.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00120.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01704323_triceratops.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00162.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_088a515b-7dd2-469a-b921-6a7de9edb7db___GCREC_Bact.Sp 3365.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_bean_rust_test.0.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00089.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00108.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00019.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00332.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_02fd4e60-db82-441c-87f6-08de768a4462___GCREC_Bact.Sp 5547.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00030.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0001.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0141.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00121.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02105251_briard.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0085.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0346.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0150.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00225.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0066.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00026.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00057.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0091.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00170.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0043.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0155.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00076.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00190.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_bean_rust_test.18.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00116.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00090.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00008.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0016.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00078.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00364.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00283.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00277.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00163.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00189.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0185.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n07892512_red_wine.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00248.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00084.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0228.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0149.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00317.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00179.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00310.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0016.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00059.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03376595_folding_chair.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00264.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00133.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0135.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0331.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01644373_tree_frog.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0005.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00106.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0194.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0035.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0114.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0230.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0108.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0264.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02104029_kuvasz.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0337.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03920288_Petri_dish.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00085.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0102.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04392985_tape_player.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00060.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04542943_waffle_iron.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00227.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0274.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n07693725_bagel.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00039.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00013.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00100.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00547.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0009.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00135.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02102040_English_springer.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00199.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00227.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0067.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00148.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00316.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00172.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0047.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00002.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00225.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00080.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03814906_necklace.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02099267_flat-coated_retriever.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02109961_Eskimo_dog.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0165.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0114.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00116.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00220.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0920bfd6-6c70-432b-be33-cccb6abb0f31___GH_HL Leaf 181.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00490.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0282.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00099.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00222.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0114.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00292.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0137.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00506.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02398521_hippopotamus.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03733131_maypole.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00063.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04367480_swab.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00573.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00413.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0241.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04286575_spotlight.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00117.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00270.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02817516_bearskin.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0117.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00038.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_072f9c7d-c296-49d9-a432-6ec9448cab2a___GCREC_Bact.Sp 3558.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00150.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00189.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00360.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0119.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00273.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0125.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0183.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00018.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0274.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0011.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0134.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0284.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00114.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_bean_rust_test.10.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02012849_crane.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00246.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00127.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00178.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0035.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0059.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00314.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00073.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00027.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00164.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0105.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0242.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00053.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0115.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0169.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00164.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0084.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00035.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0175.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00217.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00176.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00049.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00095.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02342885_hamster.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0302.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02916936_bulletproof_vest.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00037.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0109.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00072.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_07cb5416-a029-467f-a306-252c2a64d2e6___RS_HL 0543.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00099.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0100.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_083426c2-0042-4788-91ea-b7d93395c24a___RS_HL 9929.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0027.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0143.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0111.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0093.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0332.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00194.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00120.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00034.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00162.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00162.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00401.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0165.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0081.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0027.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_bean_rust_test.13.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00131.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00148.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02835271_bicycle-built-for-two.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_05598cc1-60b9-4436-a233-973c42eff2d6___GH_HL Leaf 503.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00253.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0341.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00040.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00063.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00432.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00323.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0030.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0183.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03793489_mouse.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00453.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00087.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03983396_pop_bottle.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00037.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00005.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0322.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0045.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0009.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0072.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00093.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n13037406_gyromitra.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00055.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0341.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0164.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0159.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00049.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00142.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00019.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00096.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00088.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00003.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_angular_leaf_spot_test.13.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0152.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0120.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0246.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00088.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0184.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00340.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00244.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00135.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00289.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00444.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_086dd5ed-279a-458b-aa4a-1484305ac21c___UF.GRC_BS_Lab Leaf 8835.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00220.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0092.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0197.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00055.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0104.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00203.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00550.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00555.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00238.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00092.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00410.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00304.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00087.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0147.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0058.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0017.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00230.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00223.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00117.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00244.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01494475_hammerhead.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0339.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00391.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0190.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01798484_prairie_chicken.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00055.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00417.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_08a25478-76ed-4e4c-8ad0-bc7322f050b0___GCREC_Bact.Sp 3028.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_070228e2-ba4e-4de8-813b-074e51ed6f5a___UF.GRC_BS_Lab Leaf 0661.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n07584110_consomme.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_01375198-62af-4c40-bddf-f3c11107200b___GCREC_Bact.Sp 5914.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00407.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_03bc8804-bc25-4930-b9bf-35c35920dc3f___RS_HL 9940.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00151.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0087.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00395.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00286.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01693334_green_lizard.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00191.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0022.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00252.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00033.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00130.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03590841_jack-o'-lantern.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00158.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00210.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0141.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0052.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00212.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0146.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0132.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0156.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00448.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0126.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0283.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00497.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00423.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00082.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0021.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0132.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0131.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0023.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0062.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00566.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0135.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0040.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00161.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00038.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00326.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n09399592_promontory.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03661043_library.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0108.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00180.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0279.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00039.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00065.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00011.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00137.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0206.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0039.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00386.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01910747_jellyfish.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_00416648-be6e-4bd4-bc8d-82f43f8a7240___GCREC_Bact.Sp 3110.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00073.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00280.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00010.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0028.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0019.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00233.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00152.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0007.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0018.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00195.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00211.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_068e324c-faf6-40d6-8f83-578907f1cac5___GH_HL Leaf 466.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_bean_rust_test.11.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00047.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00243.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00081.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0178.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_051beef3-8c72-4fd8-9dd4-8fececd41a35___GCREC_Bact.Sp 5989.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00229.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0000.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0224.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00026.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0255.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0323.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00072.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0010.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00530.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00142.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00256.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0062.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00047.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00416.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00039.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00225.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00143.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00277.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00124.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00017.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00076.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00385.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00192.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_angular_leaf_spot_test.36.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00172.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0014.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00400.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00032.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00240.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0012.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_angular_leaf_spot_test.40.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00362.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00564.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0cfee8b1-5de4-4118-9e25-f9c37bb6f17e___GH_HL Leaf 252.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00208.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0334.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0096.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0049.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00021.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0071.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0136.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00075.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00322.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00040.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02009229_little_blue_heron.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02107908_Appenzeller.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0100.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0029.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00207.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00536.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0181.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0280.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00381.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0240.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0275.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02100735_English_setter.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0111.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00014.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00004.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0058.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_angular_leaf_spot_test.26.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0092.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0220.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0168.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00124.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00018.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0092.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00113.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00235.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0120.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00064.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0033.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0193.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00204.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00100.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0153.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0194.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0069.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00454.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00035.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0011.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00384.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00008.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00052.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00001.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0173.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0048.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0051.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00420.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_05fc994d-7781-4dc5-a15c-b359f6c681a6___GCREC_Bact.Sp 6304.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00158.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00217.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0066.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00535.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04311004_steel_arch_bridge.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0314.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00051.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00074.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00435.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04370456_sweatshirt.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00095.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00403.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0153.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00140.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00532.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00125.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00209.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00097.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0048.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00428.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n07802026_hay.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00405.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00043.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00046.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00194.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0021.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00401.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00152.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02788148_bannister.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0099.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0113.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00156.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0262.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03837869_obelisk.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0261.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00022.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00230.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00182.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02488291_langur.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00120.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00265.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00163.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_058ade43-2361-4039-bbe5-0ac661828c01___GH_HL Leaf 325.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00110.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0106.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00053.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03314780_face_powder.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00263.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00058.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_086880d1-73c4-40d3-99ea-d446c2299692___GCREC_Bact.Sp 3333.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0055.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0175.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00010.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00136.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00501.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0251.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00237.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_03707c27-7f95-4f19-a173-1c0c74653fdf___GCREC_Bact.Sp 3046.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00321.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00197.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0034.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0140.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00235.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0048.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0055.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00031.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02708093_analog_clock.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00090.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03908618_pencil_box.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0134.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0017.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_healthy_test.34.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00077.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00417.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0182.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00054.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00419.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0161.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0052.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0205.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00376.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00402.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00263.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0109.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0130.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0277.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0059.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00110.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00198.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00051.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_04483b12-5e9c-4e74-a5b6-e8c87f60b43f___GH_HL Leaf 439.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00134.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00130.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00195.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00319.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0078.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00099.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0338.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0988fc05-ee41-4e17-9f28-fbdd03266ae6___RS_HL 9928.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0080.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_04141939-3a8c-47b2-a582-e8371ccc120f___RS_HL 0275.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0112.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00327.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00280.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0054.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_bean_rust_test.21.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0151.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0191.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00103.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00168.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0260.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0309.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00137.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0221.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00051.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0148.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n04120489_running_shoe.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00155.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0087.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_healthy_test.26.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0101.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0194.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0128.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_098b62a4-f92b-4c0d-9ab9-a6061a9d1625___GCREC_Bact.Sp 2955.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00091.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0864ab65-d40d-4902-8213-09df86cf049e___GH_HL Leaf 400.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00394.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00036.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00422.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n02094258_Norwich_terrier.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00038.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00007.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0003.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0117.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n03887697_paper_towel.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00206.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\objects\n01728920_ringneck_snake.JPEG,non_leaf,2,object_vehicle_animal,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Herbicide Growth Damage\HGD00234.jpg,cotton_leaf,0,Herbicide Growth Damage,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00142.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0118.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00144.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00190.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0185.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00085.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0070.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0c8c9c80-b7e0-47a7-81d3-b5a2174e545d___GH_HL Leaf 496.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\bean_healthy_test.39.jpg,non_cotton_leaf,1,bean,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0113.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Bacterial Blight\BBC00053.jpg,cotton_leaf,0,Bacterial Blight,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_087e3b12-a80b-435f-8973-a3b07888f8b4___RS_HL 9847.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0259.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0342.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00068.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0169.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0019.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0250.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00046.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0194.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00140.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0096.png,non_leaf,2,document,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Variegation\LV00112.jpg,cotton_leaf,0,Leaf Variegation,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0123.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0003.jpg,non_cotton_leaf,1,Apple,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00003.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0044.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Potato___healthy_0088.jpg,non_cotton_leaf,1,Potato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Hopper Jassids\LHJ00147.jpg,cotton_leaf,0,Leaf Hopper Jassids,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00006.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0185.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00514.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00025.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0a205a11-1e64-49f7-93c2-ad59312b4f83___RS_HL 0334.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00054.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Early_blight_0007.jpg,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0055.jpg,non_leaf,2,human_face,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0902aa8e-e4f7-4c29-b11a-b2b7f24fe61c___GH_HL Leaf 228.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\documents\document_0329.png,non_leaf,2,document,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0262.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00129.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Healthy Leaf\HL00078.jpg,cotton_leaf,0,Healthy Leaf,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00155.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___healthy_0a334ae6-bea3-4453-b200-85e082794d56___GH_HL Leaf 310.1.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00269.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00082.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00037.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_leaf\faces\face_0231.jpg,non_leaf,2,human_face,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Curl Virus\CV00252.jpg,cotton_leaf,0,Curl Virus,val
+D:\Main_Project\dataset\SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection\Original Dataset\Leaf Redding\LR00552.jpg,cotton_leaf,0,Leaf Redding,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Tomato___Bacterial_spot_0045ba29-ed1b-43b4-afde-719cc7adefdb___GCREC_Bact.Sp 6254.JPG,non_cotton_leaf,1,Tomato,val
+D:\Main_Project\cotton_leaf_ai\data\verification\images\non_cotton_leaf\Apple___healthy_0011.jpg,non_cotton_leaf,1,Apple,val

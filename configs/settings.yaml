@@ -1,0 +1,31 @@
+project:
+  name: cotton-leaf-ai
+  random_seed: 42
+
+paths:
+  # Original dataset is read-only. Do not point output paths inside this folder.
+  primary_dataset: "D:/Main_Project/dataset/Original Dataset"
+  secondary_dataset: "D:/Main_Project/dataset/Cotton-Original-Augmented"
+  project_root: "D:/Main_Project/cotton_leaf_ai"
+  audit_output: "D:/Main_Project/cotton_leaf_ai/artifacts/audit"
+
+classification:
+  image_size: 224
+  num_classes: 7
+  class_names:
+    - Bacterial Blight
+    - Curl Virus
+    - Healthy Leaf
+    - Herbicide Growth Damage
+    - Leaf Hopper Jassids
+    - Leaf Redding
+    - Leaf Variegation
+
+splitting:
+  train: 0.70
+  validation: 0.15
+  test: 0.15
+  # Split only after duplicate/source-group review. Keep related images together.
+
+security:
+  allow_source_dataset_writes: false

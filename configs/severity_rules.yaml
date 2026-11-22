@@ -1,0 +1,56 @@
+# CottonGuard AI — Configurable Literature-Guided Provisional Severity Rules
+
+version: "2.0"
+category_validated: false
+thresholds_verified: false
+calculation_method: "unet_pixel_ratio_v1"
+threshold_basis: >
+  Provisional 6-tier digital pixel-ratio scale aligned conceptually with
+  Horsfall-Barratt (1945) / CABI / FAO foliar assessment bands; remains
+  category_validated=false until calibrated against manually reviewed cotton field samples.
+
+# 6-Tier Literature-Guided Provisional Scale (%)
+provisional_6_tier_thresholds:
+  none_max_percentage: 0.0
+  trace_max_percentage: 10.0
+  mild_max_percentage: 25.0
+  moderate_max_percentage: 50.0
+  severe_max_percentage: 75.0
+  # > 75.0% -> Very Severe
+
+# Legacy 4-Tier keys retained for API backward compatibility
+thresholds:
+  no_lesion_max_percentage: 0.5
+  low_max_percentage: 15.0
+  moderate_max_percentage: 40.0
+
+categories:
+  None:
+    label: "None (0% Diseased Tissue)"
+    description: "Zero symptomatic diseased tissue pixels detected inside leaf boundary."
+  Trace:
+    label: "Trace (0.1% - 10%)"
+    description: "Minimal early foliar lesion coverage within leaf boundary."
+  Mild:
+    label: "Mild (10.1% - 25%)"
+    description: "Light to moderate localized lesion spread across leaf lamina."
+  Moderate:
+    label: "Moderate (25.1% - 50%)"
+    description: "Substantial foliar tissue affected; field scouting & ETL verification advised."
+  Severe:
+    label: "Severe (50.1% - 75%)"
+    description: "Majority of visible leaf lamina exhibits disease symptoms."
+  Very Severe:
+    label: "Very Severe (> 75%)"
+    description: "Extensive foliar damage exceeding 75% of visible leaf pixels."
+  UNAVAILABLE:
+    label: "Severity calculation requires a trained segmentation model."
+    description: "Segmentation mask or calibrated ground truth is unavailable for this sample."
+
+confidence_gates:
+  min_classification_confidence: 0.60
+  min_leaf_pixels: 500
+
+disclaimers:
+  physical_area: "Estimates represent 2D camera-plane pixel proportions, not physical leaf area in cm²."
+  field_context: "Image-based severity does not replace in-field agronomist inspection or economic threshold level (ETL) pest counts."

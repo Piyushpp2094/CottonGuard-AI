@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-11-23T16:33:25.424910+00:00",
+  "models": {
+    "classifier": {
+      "name": "EfficientNet-B0",
+      "architecture": "efficientnet_b0 (torchvision)",
+      "version": "v1.0.0",
+      "checkpoint": "artifacts/checkpoints/classification/best_model.pt",
+      "checkpoint_sha256": "552baba83a66ad4a8bbc1eeb7fe3ee8dd84dfabe68c1ef477930da57a05fa90e",
+      "status": "trained",
+      "test_accuracy": 0.9782,
+      "macro_f1": 0.9754,
+      "provenance_verified": true,
+      "trained_on": "SAR-CLD-2024",
+      "annotation_requirements": "none",
+      "last_updated": "2026-11-23T16:33:25.424910+00:00",
+      "classes": [
+        "Bacterial Blight",
+        "Curl Virus",
+        "Healthy Leaf",
+        "Herbicide Growth Damage",
+        "Leaf Hopper Jassids",
+        "Leaf Redding",
+        "Leaf Variegation"
+      ]
+    },
+    "detector": {
+      "name": "Faster R-CNN ResNet-50 FPN V2",
+      "architecture": "fasterrcnn_resnet50_fpn_v2 (TorchVision COCO_V1)",
+      "version": "v1.0.0-experimental",
+      "checkpoint": "artifacts/checkpoints/detection/best_faster_rcnn.pt",
+      "checkpoint_sha256": "01d82b3282509c543c1bd3a48a46cc03581b3ce573a8d8b77b85be8e2b36b5d2",
+      "status": "experimental",
+      "map50": 0.1394,
+      "map50_95": 0.0853,
+      "best_epoch": 13,
+      "annotation_requirements": "CVAT bounding-box annotations available for pilot (50 images). Expanded annotations recommended for production training.",
+      "last_updated": "2026-11-23T16:33:25.424910+00:00"
+    },
+    "segmentor": {
+      "name": "UNet-ResNet34",
+      "architecture": "unet_resnet34 (smp / TorchVision ResNet-34 encoder)",
+      "version": "v1.0.0-experimental",
+      "checkpoint": "artifacts/checkpoints/segmentation/best_unet.pt",
+      "checkpoint_sha256": "612fca0a162b56b8253a81b9ded3d069c1e15666e505feb38fc93ed6be7c3a43",
+      "status": "experimental",
+      "dice": 0.6844733333333333,
+      "iou": 0.59351,
+      "annotation_requirements": "CVAT segmentation mask exports available for pilot (50 masks).",
+      "last_updated": "2026-11-23T16:33:25.424910+00:00"
+    }
+  }
+}

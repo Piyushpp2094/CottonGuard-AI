@@ -1,0 +1,29 @@
+# Ultralytics YOLOv8n Configuration (RTX 3050 6 GB VRAM)
+# License Notice: Ultralytics package is licensed under AGPL-3.0.
+# Keep custom permissive src/models/detector.py preserved separately.
+
+model: yolov8n.pt
+data: datasets/yolo/data.yaml
+epochs: 100
+imgsz: 640
+batch: 16
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+warmup_epochs: 3
+patience: 20
+device: 0
+workers: 4
+seed: 42
+project: artifacts/yolo_runs
+name: cotton_disease_v1
+save_period: 10
+augment: true
+
+classes:
+  0: Bacterial_Blight
+  1: Curl_Virus
+  2: Herbicide_Growth_Damage
+  3: Leaf_Hopper_Jassids
+  4: Leaf_Redding
+  5: Leaf_Variegation

@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotton Leaf AI — Precision Agriculture Platform</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React 18 & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel Standalone for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const API_BASE = window.location.origin;
+
+    const CONDITIONS_INFO = [
+      { name: 'Bacterial Blight', tag: 'Pathogen', desc: 'Angular water-soaked leaf lesions caused by Xanthomonas citri pv. malvacearum' },
+      { name: 'Curl Virus', tag: 'Virus', desc: 'Upward/downward leaf curling and enation thickening transmitted by whiteflies' },
+      { name: 'Healthy Leaf', tag: 'Normal', desc: 'Normal foliar lamina with uniform chlorophyll and robust vein architecture' },
+      { name: 'Herbicide Growth Damage', tag: 'Abiotic', desc: 'Puckering, strap-like elongation, and epinasty caused by herbicide drift' },
+      { name: 'Leaf Hopper Jassids', tag: 'Pest', desc: 'Marginal chlorosis and hopper burn caused by Amrasca biguttula nymphs' },
+      { name: 'Leaf Redding', tag: 'Physiological', desc: 'Anthocyanin pigmentation caused by nitrogen/magnesium stress or waterlogging' },
+      { name: 'Leaf Variegation', tag: 'Genetic/Mosaic', desc: 'Irregular mosaic chimera discoloration across foliar tissues' },
+    ];
+
+    const SAMPLES_INFO = [
+      { name: 'Bacterial Blight', file: 'BBC00226.jpg', tag: 'Pathogen', desc: 'Angular water-soaked leaf spots' },
+      { name: 'Curl Virus', file: 'CV00248.jpg', tag: 'Virus', desc: 'Vein thickening & severe leaf curl' },
+      { name: 'Healthy Leaf', file: 'HL00031.jpg', tag: 'Control', desc: 'Normal physiological green foliage' },
+      { name: 'Herbicide Growth Damage', file: 'HGD00202.jpg', tag: 'Abiotic', desc: 'Hormonal strap-like epinasty' },
+      { name: 'Leaf Hopper Jassids', file: 'LHJ00185.jpg', tag: 'Pest', desc: 'Marginal chlorotic hopperburn' },
+      { name: 'Leaf Reddening', file: 'LR00098.jpg', tag: 'Physiological', desc: 'Interveinal anthocyanin bronzing' },
+      { name: 'Leaf Variegation', file: 'LV00044.jpg', tag: 'Mosaic', desc: 'Irregular mosaic chimera mottling' },
+    ];
+
+    function App() {
+      const [currentTab, setCurrentTab] = useState('home');
+      const [token, setToken] = useState(localStorage.getItem('token'));
+      const [user, setUser] = useState(null);
+      const [authModalOpen, setAuthModalOpen] = useState(false);
+      const [authMode, setAuthMode] = useState('login'); // 'login' or 'register'
+
+      // Auth form
+      const [authUsername, setAuthUsername] = useState('');
+      const [authEmail, setAuthEmail] = useState('');
+      const [authPassword, setAuthPassword] = useState('');
+      const [authError, setAuthError] = useState('');
+      const [authLoading, setAuthLoading] = useState(false);
+
+      // Analyze state
+      const [selectedFile, setSelectedFile] = useState(null);
+      const [previewUrl, setPreviewUrl] = useState(null);
+      const [analyzing, setAnalyzing] = useState(false);
+      const [analyzeError, setAnalyzeError] = useState(null);
+      const [predictionResult, setPredictionResult] = useState(null);
+      const [explainTab, setExplainTab] = useState('comparison');
+
+      // Dashboard stats
+      const [stats, setStats] = useState(null);
+
+      // History
+      const [history, setHistory] = useState([]);
+      const [searchQuery, setSearchQuery] = useState('');
+
+      // Admin Telemetry & User Data
+      const [adminUsers, setAdminUsers] = useState([]);
+      const [adminOverview, setAdminOverview] = useState(null);
+      const [adminLogs, setAdminLogs] = useState([]);
+
+      // Auto login check
+      useEffect(() => {
+        if (token) {
+          fetch(`${API_BASE}/api/auth/me`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
+          .then(res => res.ok ? res.json() : Promise.reject())
+          .then(data => setUser(data))
+          .catch(() => {
+            localStorage.removeItem('token');
+            setToken(null);
+            setUser(null);
+          });
+        }
+      }, [token]);
+
+      // Re-render icons on DOM update
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+
+      // Load dashboard stats when on dashboard tab
+      useEffect(() => {
+        if (currentTab === 'dashboard' && token) {
+          fetch(`${API_BASE}/api/dashboard/statistics`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
+          .then(res => res.json())
+          .then(data => setStats(data))
+          .catch(err => console.error(err));
+        }
+      }, [currentTab, token]);
+
+      // Load admin data when on admin tab and token exists
+      useEffect(() => {
+        if (currentTab === 'admin' && token) {
+          fetch(`${API_BASE}/api/admin/users`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
+          .then(res => res.ok ? res.json() : [])
+          .then(data => setAdminUsers(data))
+          .catch(err => console.log('Admin users fetch:', err));
+
+          fetch(`${API_BASE}/api/admin/overview`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
+          .then(res => res.ok ? res.json() : null)
+          .then(data => setAdminOverview(data))
+          .catch(err => console.log('Admin overview fetch:', err));
+
+          fetch(`${API_BASE}/api/admin/audit-logs?limit=20`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          })
+          .then(res => res.ok ? res.json() : [])
+          .then(data => setAdminLogs(data))
+          .catch(err => console.log('Admin audit logs fetch:', err));
+        }
+      }, [currentTab, token]);
+
+      // Load history when on history tab
+      useEffect(() => {
+        if (currentTab === 'history' && token) {
+          loadHistory('');
+        }
+      }, [currentTab, token]);
+
+      const loadHistory = (query) => {
+        const url = query ? `${API_BASE}/api/predictions/history?search=${encodeURIComponent(query)}` : `${API_BASE}/api/predictions/history`;
+        fetch(url, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+        .then(res => res.json())
+        .then(data => setHistory(data))
+        .catch(err => console.error(err));
+      };
+
+      const handleAuthSubmit = async (e) => {
+        e.preventDefault();
+        setAuthError('');
+        setAuthLoading(true);
+
+        try {
+          if (authMode === 'login') {
+            const res = await fetch(`${API_BASE}/api/auth/login`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username_or_email: authUsername, password: authPassword })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.detail || 'Login failed');
+            localStorage.setItem('token', data.access_token);
+            setToken(data.access_token);
+            setUser(data.user);
+            setAuthModalOpen(false);
+          } else {
+            const regRes = await fetch(`${API_BASE}/api/auth/register`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username: authUsername, email: authEmail, password: authPassword, role: 'farmer' })
+            });
+            const regData = await regRes.json();
+            if (!regRes.ok) throw new Error(regData.detail || 'Registration failed');
+            // Auto login
+            const loginRes = await fetch(`${API_BASE}/api/auth/login`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username_or_email: authUsername, password: authPassword })
+            });
+            const loginData = await loginRes.json();
+            localStorage.setItem('token', loginData.access_token);
+            setToken(loginData.access_token);
+            setUser(loginData.user);
+            setAuthModalOpen(false);
+          }
+        } catch (err) {
+          setAuthError(err.message);
+        } finally {
+          setAuthLoading(false);
+        }
+      };
+
+      const handleLogout = () => {
+        localStorage.removeItem('token');
+        setToken(null);
+        setUser(null);
+        setCurrentTab('home');
+      };
+
+      const handleFileSelect = (file) => {
+        if (!file || !file.type.startsWith('image/')) {
+          setAnalyzeError('Please select a valid image file (JPEG, PNG).');
+          return;
+        }
+        setAnalyzeError(null);
+        setSelectedFile(file);
+        setPreviewUrl(URL.createObjectURL(file));
+        setPredictionResult(null);
+      };
+
+      const handleSelectSample = async (sample) => {
+        try {
+          setAnalyzing(true);
+          setAnalyzeError(null);
+          const res = await fetch(`${API_BASE}/static/samples/${sample.file}`);
+          if (!res.ok) throw new Error("Could not load sample leaf file.");
+          const blob = await res.blob();
+          const file = new File([blob], sample.file, { type: 'image/jpeg' });
+          setSelectedFile(file);
+          setPreviewUrl(URL.createObjectURL(file));
+          setPredictionResult(null);
+        } catch (err) {
+          setAnalyzeError("Failed to load sample image: " + err.message);
+        } finally {
+          setAnalyzing(false);
+        }
+      };
+
+      const handleAnalyze = async () => {
+        if (!token) {
+          setAuthModalOpen(true);
+          return;
+        }
+        if (!selectedFile) return;
+
+        setAnalyzing(true);
+        setAnalyzeError(null);
+
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+        try {
+          const res = await fetch(`${API_BASE}/api/predictions/analyze`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` },
+            body: formData
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.detail || 'Analysis failed');
+          setPredictionResult(data);
+        } catch (err) {
+          setAnalyzeError(err.message);
+        } finally {
+          setAnalyzing(false);
+        }
+      };
+
+      return (
+        <div className="min-h-screen flex flex-col">
+          {/* Top Navbar */}
+          <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
+            <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+              <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentTab('home')}>
+                <div className="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white shadow-sm font-bold text-xl">
+                  🍃
+                </div>
+                <div>
+                  <span className="font-extrabold text-lg text-slate-900 tracking-tight">CottonLeaf<span className="text-brand-600">AI</span></span>
+                  <span className="ml-2 text-xs font-semibold px-2 py-0.5 bg-brand-50 text-brand-700 rounded-full border border-brand-200 hidden sm:inline">RTX 3050 CUDA</span>
+                </div>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="hidden md:flex items-center space-x-1">
+                <button
+                  onClick={() => setCurrentTab('home')}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'home' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => {
+                    if (!token) { setAuthModalOpen(true); } else { setCurrentTab('analyze'); }
+                  }}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'analyze' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  Analyze Leaf
+                </button>
+                <button
+                  onClick={() => {
+                    if (!token) { setAuthModalOpen(true); } else { setCurrentTab('dashboard'); }
+                  }}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'dashboard' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => {
+                    if (!token) { setAuthModalOpen(true); } else { setCurrentTab('history'); }
+                  }}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'history' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  Scan History
+                </button>
+                <button
+                  onClick={() => setCurrentTab('admin')}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'admin' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  {user && user.role === 'admin' ? '🛡️ Admin Center' : 'Infrastructure'}
+                </button>
+                <button
+                  onClick={() => setCurrentTab('models')}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'models' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  AI Models
+                </button>
+                <button
+                  onClick={() => setCurrentTab('about')}
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition ${currentTab === 'about' ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  Project & Team
+                </button>
+              </nav>
+
+              {/* User Profile / Auth Button */}
+              <div className="flex items-center space-x-3">
+                {user ? (
+                  <div className="flex items-center space-x-3">
+                    <span className="text-sm text-slate-600 hidden sm:inline">
+                      {user.role === 'admin' ? (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-800 mr-1.5">Admin</span>
+                      ) : (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mr-1.5">Farmer</span>
+                      )}
+                      <strong className="text-slate-800">{user.username}</strong>
+                    </span>
+                    <button
+                      onClick={handleLogout}
+                      className="px-3 py-1.5 rounded-lg text-sm border border-slate-200 text-slate-600 hover:text-red-600 hover:bg-red-50 transition"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => { setAuthMode('login'); setAuthModalOpen(true); }}
+                    className="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-sm transition"
+                  >
+                    Sign In
+                  </button>
+                )}
+              </div>
+            </div>
+          </header>
+
+          {/* Main Content Body */}
+          <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+            {/* TAB: HOME */}
+            {currentTab === 'home' && (
+              <div className="space-y-16">
+                <section className="text-center max-w-4xl mx-auto pt-6">
+                  <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-brand-50 border border-brand-200 rounded-full text-brand-700 text-xs font-bold uppercase tracking-wider mb-6">
+                    ⚡ EfficientNet-B0 • 97.82% Verified Test Accuracy • NVIDIA RTX 3050 CUDA
+                  </div>
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                    AI-Driven Precision Agriculture Platform for <span className="text-brand-600">Cotton Leaf Health</span>
+                  </h1>
+                  <p className="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    Automated cotton foliar disease classification, pixel-level affected area estimation, severity analysis, and official ICAR-CICR agronomic guidance.
+                  </p>
+                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button
+                      onClick={() => {
+                        if (!token) setAuthModalOpen(true);
+                        else setCurrentTab('analyze');
+                      }}
+                      className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-bold bg-brand-600 hover:bg-brand-700 text-white shadow-lg shadow-brand-500/25 transition"
+                    >
+                      Start Leaf Diagnosis
+                    </button>
+                    <button
+                      onClick={() => setCurrentTab('admin')}
+                      className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-base font-semibold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-sm transition"
+                    >
+                      View AI Infrastructure
+                    </button>
+                  </div>
+                </section>
+
+                {/* 7 Target Disease Categories */}
+                <section>
+                  <div className="text-center mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">7 Target Cotton Conditions</h2>
+                    <p className="text-sm text-slate-500 mt-1">Differentiating bacterial, viral, sucking pest, and physiological stresses</p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {CONDITIONS_INFO.map((c, i) => (
+                      <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+                        <div className="flex justify-between items-center mb-3">
+                          <span className="text-xs font-bold px-2.5 py-0.5 bg-slate-100 text-slate-700 rounded-full">{c.tag}</span>
+                          <span className="text-brand-600 font-bold">Class #{i}</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-900 mb-1">{c.name}</h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">{c.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </div>
+            )}
+
+            {/* TAB: ANALYZE */}
+            {currentTab === 'analyze' && (
+              <div className="max-w-4xl mx-auto space-y-8">
+                <div>
+                  <h1 className="text-2xl sm:text-3xl font-black text-slate-900">Cotton Leaf Disease Analysis</h1>
+                  <p className="text-sm text-slate-500 mt-1">Upload a leaf photograph for instant neural network evaluation</p>
+                </div>
+
+                {analyzeError && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm">
+                    <strong>Error: </strong>{analyzeError}
+                  </div>
+                )}
+
+                {!predictionResult ? (
+                  <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+                    <div
+                      onDragOver={(e) => e.preventDefault()}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                          handleFileSelect(e.dataTransfer.files[0]);
+                        }
+                      }}
+                      className="border-2 border-dashed border-slate-300 hover:border-brand-500 rounded-2xl p-8 sm:p-12 text-center cursor-pointer transition bg-slate-50/50 hover:bg-slate-50"
+                      onClick={() => document.getElementById('fileInput').click()}
+                    >
+                      <input
+                        id="fileInput"
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => e.target.files && e.target.files[0] && handleFileSelect(e.target.files[0])}
+                      />
+                      {previewUrl ? (
+                        <div className="space-y-4">
+                          <img src={previewUrl} alt="Leaf Preview" className="max-h-72 mx-auto rounded-xl object-contain shadow-md" />
+                          <p className="text-xs text-slate-500 font-semibold">{selectedFile?.name} (Click or drop to replace)</p>
+                        </div>
+                      ) : (
+                        <div className="space-y-3">
+                          <div className="text-5xl">📷</div>
+                          <h3 className="text-lg font-bold text-slate-900">Drag and drop your leaf photo here</h3>
+                          <p className="text-xs text-slate-500 max-w-sm mx-auto">Supports JPG, PNG, WEBP (Max 15 MB). High-contrast foliage photos produce highest classification confidence.</p>
+                        </div>
+                      )}
+                    </div>
+
+                    {previewUrl && (
+                      <div className="mt-6 flex justify-end gap-3">
+                        <button
+                          onClick={() => { setSelectedFile(null); setPreviewUrl(null); }}
+                          className="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50"
+                        >
+                          Clear
+                        </button>
+                        <button
+                          onClick={handleAnalyze}
+                          disabled={analyzing}
+                          className="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition disabled:opacity-50"
+                        >
+                          {analyzing ? 'Evaluating on RTX 3050 CUDA...' : 'Run Neural Diagnostic'}
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Preloaded Sample Gallery for Instant College Demo */}
+                    <div className="mt-8 pt-6 border-t border-slate-100">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-sm font-bold text-slate-800 flex items-center">
+                          <span className="text-brand-600 mr-2">🌿</span> Click Preloaded Sample for Instant Evaluation
+                        </h4>
+                        <span className="text-xs text-slate-400">All 7 cotton leaf conditions</span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                        {SAMPLES_INFO.map((s, idx) => (
+                          <div
+                            key={idx}
+                            onClick={() => handleSelectSample(s)}
+                            className="group cursor-pointer p-2 bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-300 rounded-xl transition text-center flex flex-col items-center justify-between shadow-xs hover:shadow-sm"
+                          >
+                            <img
+                              src={`/static/samples/${s.file}`}
+                              alt={s.name}
+                              className="w-16 h-16 object-cover rounded-lg mb-1.5 shadow-xs group-hover:scale-105 transition"
+                            />
+                            <div className="text-[11px] font-bold text-slate-800 leading-tight group-hover:text-brand-700">{s.name}</div>
+                            <span className="mt-1 text-[9px] px-1.5 py-0.5 bg-white border border-slate-200 text-slate-500 rounded font-semibold">{s.tag}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (predictionResult.is_cotton_leaf === false || (predictionResult.status && predictionResult.status.startsWith('REJECTED'))) ? (
+                  /* GATE REJECTION VIEW */
+                  <div className="bg-white rounded-3xl border border-rose-200 p-8 shadow-sm space-y-6">
+                    <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl flex items-start space-x-3.5">
+                      <div className="text-2xl flex-shrink-0">🚫</div>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className="text-xs font-bold px-2.5 py-0.5 bg-rose-600 text-white rounded-full">
+                            {predictionResult.status}
+                          </span>
+                          <span className="text-xs font-semibold text-rose-700">
+                            Verification Gate: Analysis Halted
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-rose-900">
+                          {predictionResult.status === 'REJECTED_QUALITY'
+                            ? 'Image Quality Insufficient'
+                            : predictionResult.status === 'REJECTED_NON_PLANT'
+                            ? 'Not a Cotton Leaf (Non-Plant Detected)'
+                            : 'Not a Cotton Leaf (Other Foliage Detected)'}
+                        </h3>
+                        <p className="text-sm text-rose-800 mt-1">
+                          {predictionResult.rejection_reason || predictionResult.user_message || 'The uploaded photograph could not be verified as a valid cotton leaf.'}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                      <div className="text-center bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-3">
+                          Uploaded Image (Rejected Input)
+                        </span>
+                        <img
+                          src={`${API_BASE}${predictionResult.image_url}`}
+                          alt="Rejected Uploaded Image"
+                          className="max-h-72 mx-auto rounded-xl object-contain border-2 border-rose-300 shadow-sm"
+                        />
+                      </div>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+                          Verification Safeguards Enforced
+                        </h4>
+                        <ul className="space-y-3 text-sm text-slate-600">
+                          <li className="flex items-start">
+                            <span className="text-rose-500 font-bold mr-2 text-base">✕</span>
+                            <span><strong>No False Disease Diagnostics:</strong> Deep learning disease classification is stopped before execution to prevent false predictions on invalid images.</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-rose-500 font-bold mr-2 text-base">✕</span>
+                            <span><strong>No Saliency Artifacts:</strong> Grad-CAM heatmaps and U-Net segmentation overlays are suppressed to avoid misleading visual cues.</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-rose-500 font-bold mr-2 text-base">✕</span>
+                            <span><strong>Agronomic Guidance Protected:</strong> Chemical recommendations and treatment schedules are exclusively reserved for verified cotton crops.</span>
+                          </li>
+                        </ul>
+
+                        <div className="pt-4 flex flex-wrap gap-3">
+                          <button
+                            onClick={() => { setSelectedFile(null); setPreviewUrl(null); setPredictionResult(null); }}
+                            className="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm shadow transition flex items-center"
+                          >
+                            🔄 Scan Another Leaf
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (predictionResult.is_cotton_leaf === null || predictionResult.status === 'UNCERTAIN_IMAGE') ? (
+                  /* GATE UNCERTAIN VIEW */
+                  <div className="bg-white rounded-3xl border border-amber-200 p-8 shadow-sm space-y-6">
+                    <div className="p-4 bg-amber-50 border border-amber-200 rounded-2xl flex items-start space-x-3.5">
+                      <div className="text-2xl flex-shrink-0">⚠️</div>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className="text-xs font-bold px-2.5 py-0.5 bg-amber-600 text-white rounded-full">
+                            UNCERTAIN_IMAGE
+                          </span>
+                          <span className="text-xs font-semibold text-amber-800">
+                            Verification Gate: Low Confidence
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-amber-900">Cotton Leaf Verification Uncertain</h3>
+                        <p className="text-sm text-amber-800 mt-1">
+                          {predictionResult.rejection_reason || predictionResult.user_message || 'The system could not verify with sufficient confidence that this is a cotton leaf.'}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                      <div className="text-center bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-3">
+                          Uploaded Image (Uncertain Input)
+                        </span>
+                        <img
+                          src={`${API_BASE}${predictionResult.image_url}`}
+                          alt="Uncertain Uploaded Image"
+                          className="max-h-72 mx-auto rounded-xl object-contain border-2 border-amber-300 shadow-sm"
+                        />
+                      </div>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+                          Tips for Reliable Verification
+                        </h4>
+                        <ul className="space-y-3 text-sm text-slate-600">
+                          <li className="flex items-start">
+                            <span className="text-brand-600 font-bold mr-2 text-base">✓</span>
+                            <span>Capture a clear, close-up photo of a single cotton leaf.</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-brand-600 font-bold mr-2 text-base">✓</span>
+                            <span>Ensure good natural daytime lighting without extreme flash glare or dark shadows.</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-brand-600 font-bold mr-2 text-base">✓</span>
+                            <span>Keep the leaf centered and in sharp focus.</span>
+                          </li>
+                        </ul>
+
+                        <div className="pt-4 flex flex-wrap gap-3">
+                          <button
+                            onClick={() => { setSelectedFile(null); setPreviewUrl(null); setPredictionResult(null); }}
+                            className="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm shadow transition flex items-center"
+                          >
+                            🔄 Try Another Photo
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Prediction Result Card - ONLY FOR VERIFIED COTTON LEAF */
+                  <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-8">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-slate-100 gap-4">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-xs font-bold px-3 py-1 bg-brand-50 text-brand-700 border border-brand-200 rounded-full">
+                            Prediction #{predictionResult.id} • {predictionResult.model_version}
+                          </span>
+                          <span className="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">
+                            🌿 Cotton Leaf Verified
+                          </span>
+                        </div>
+                        <h2 className="text-3xl font-black text-slate-900 mt-2">{predictionResult.predicted_class}</h2>
+                        <p className="text-sm text-slate-500">{predictionResult.recommendations?.pathogen_or_cause}</p>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <button
+                          onClick={() => { setSelectedFile(null); setPreviewUrl(null); setPredictionResult(null); }}
+                          className="px-4 py-2 border border-slate-200 rounded-xl text-slate-700 font-bold text-sm hover:bg-slate-50 transition"
+                        >
+                          Scan Another Leaf
+                        </button>
+                        <a
+                          href={`${API_BASE}/api/reports/${predictionResult.id}`}
+                          target="_blank"
+                          className="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm shadow-sm transition"
+                        >
+                          📄 Download PDF Report
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Metrics Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                      <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Classification Confidence</span>
+                        <div className="text-2xl font-black text-slate-900 mt-2">{(predictionResult.confidence * 100).toFixed(1)}%</div>
+                        <div className="w-full bg-slate-200 h-2 rounded-full mt-3 overflow-hidden">
+                          <div className="bg-brand-600 h-full rounded-full" style={{ width: `${predictionResult.confidence * 100}%` }}></div>
+                        </div>
+                      </div>
+
+                      <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Severity Status</span>
+                        <div className="text-2xl font-black text-slate-900 mt-2">{predictionResult.severity_level}</div>
+                        <div className="text-xs text-slate-500 mt-2">Calibrated agronomic band</div>
+                      </div>
+
+                      <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Affected Area Percentage</span>
+                        <div className="text-xl font-bold text-slate-700 mt-2">
+                          {predictionResult.affected_area_percentage !== null ? `${predictionResult.affected_area_percentage}%` : 'Unavailable'}
+                        </div>
+                        <div className="text-xs text-slate-500 mt-2">
+                          {predictionResult.affected_area_percentage !== null ? '2D pixel proportion' : 'Requires annotated U-Net masks'}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Grad-CAM Model Explainability Showcase */}
+                    <div className="bg-slate-900 text-white p-6 rounded-3xl border border-slate-800 space-y-5">
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                          <div className="flex items-center space-x-2">
+                            <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">
+                              Phase 2 Explainability
+                            </span>
+                            <span className="text-xs text-slate-400">EfficientNet-B0 • Layer: features[-1]</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-white mt-1.5">Model Attention & Interpretability (Grad-CAM)</h3>
+                          <p className="text-xs text-slate-400">
+                            Visualizing foliar regions that contributed to predicting <strong className="text-emerald-300">{predictionResult.predicted_class}</strong> ({(predictionResult.confidence * 100).toFixed(1)}% confidence)
+                          </p>
+                        </div>
+
+                        {/* View Switcher Tabs */}
+                        <div className="flex bg-slate-800 p-1 rounded-xl text-xs font-semibold">
+                          <button
+                            type="button"
+                            onClick={() => setExplainTab('comparison')}
+                            className={`px-3 py-1.5 rounded-lg transition ${explainTab === 'comparison' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}
+                          >
+                            3-Panel Overview
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setExplainTab('overlay')}
+                            className={`px-3 py-1.5 rounded-lg transition ${explainTab === 'overlay' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}
+                          >
+                            Overlay
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setExplainTab('heatmap')}
+                            className={`px-3 py-1.5 rounded-lg transition ${explainTab === 'heatmap' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}
+                          >
+                            Heatmap
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setExplainTab('original')}
+                            className={`px-3 py-1.5 rounded-lg transition ${explainTab === 'original' ? 'bg-emerald-600 text-white shadow' : 'text-slate-400 hover:text-white'}`}
+                          >
+                            Original
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Display Area */}
+                      <div className="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 flex flex-col items-center justify-center min-h-[300px]">
+                        {explainTab === 'comparison' && (
+                          <div className="w-full text-center space-y-2">
+                            {predictionResult.gradcam_comparison_url ? (
+                              <img
+                                src={`${API_BASE}${predictionResult.gradcam_comparison_url}`}
+                                alt="Grad-CAM 3-Panel Comparison"
+                                className="w-full max-h-[460px] object-contain rounded-xl shadow-lg border border-slate-800"
+                              />
+                            ) : (
+                              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                  <p className="text-xs text-slate-400 mb-1 font-semibold">1. Original Image</p>
+                                  <img src={`${API_BASE}${predictionResult.image_url}`} alt="Original" className="max-h-56 mx-auto rounded-lg object-contain" />
+                                </div>
+                                <div>
+                                  <p className="text-xs text-slate-400 mb-1 font-semibold">2. Heatmap</p>
+                                  <img src={`${API_BASE}${predictionResult.gradcam_heatmap_url}`} alt="Heatmap" className="max-h-56 mx-auto rounded-lg object-contain" />
+                                </div>
+                                <div>
+                                  <p className="text-xs text-slate-400 mb-1 font-semibold">3. Overlay</p>
+                                  <img src={`${API_BASE}${predictionResult.gradcam_overlay_url}`} alt="Overlay" className="max-h-56 mx-auto rounded-lg object-contain" />
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {explainTab === 'overlay' && (
+                          <div className="text-center space-y-2">
+                            <p className="text-xs text-slate-400 font-semibold">Diagnostic Foliar Overlay (40% Opacity Alpha-Blend)</p>
+                            <img
+                              src={`${API_BASE}${predictionResult.gradcam_overlay_url || predictionResult.image_url}`}
+                              alt="Diagnostic Overlay"
+                              className="max-h-96 mx-auto rounded-xl object-contain shadow-md"
+                            />
+                          </div>
+                        )}
+
+                        {explainTab === 'heatmap' && (
+                          <div className="text-center space-y-2">
+                            <p className="text-xs text-slate-400 font-semibold">Normalized Jet Activation Intensity Map</p>
+                            <img
+                              src={`${API_BASE}${predictionResult.gradcam_heatmap_url}`}
+                              alt="Attention Heatmap"
+                              className="max-h-96 mx-auto rounded-xl object-contain shadow-md"
+                            />
+                          </div>
+                        )}
+
+                        {explainTab === 'original' && (
+                          <div className="text-center space-y-2">
+                            <p className="text-xs text-slate-400 font-semibold">Original High-Resolution Foliar Input</p>
+                            <img
+                              src={`${API_BASE}${predictionResult.image_url}`}
+                              alt="Original Foliar Photograph"
+                              className="max-h-96 mx-auto rounded-xl object-contain shadow-md"
+                            />
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Scientific Disclaimer Banner */}
+                      <div className="p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-300 text-xs flex items-start space-x-2.5">
+                        <span className="font-bold text-amber-400 flex-shrink-0">[SCIENTIFIC NOTICE]:</span>
+                        <span className="leading-relaxed text-amber-200/90">
+                          Grad-CAM highlights image regions that contributed to the model's prediction. It does not represent a pixel-accurate disease segmentation or disease severity measurement.
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* ICAR-CICR Guidance */}
+                    <div className="space-y-4 pt-4 border-t border-slate-100">
+                      <h3 className="text-xl font-bold text-slate-900">Agronomic Guidance (ICAR-CICR Aligned)</h3>
+
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-800 mb-2">Immediate Field Actions:</h4>
+                        <ul className="space-y-2">
+                          {predictionResult.recommendations?.immediate_first_steps?.map((step, idx) => (
+                            <li key={idx} className="text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-start">
+                              <span className="text-brand-600 mr-2 font-bold">✓</span> {step}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="text-sm font-bold text-slate-800 mb-2">Preventive Cultural Practices:</h4>
+                        <ul className="space-y-2">
+                          {predictionResult.recommendations?.preventive_management?.map((prev, idx) => (
+                            <li key={idx} className="text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 flex items-start">
+                              <span className="text-brand-600 mr-2 font-bold">✓</span> {prev}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {predictionResult.recommendations?.critical_warning && (
+                        <div className="p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-sm">
+                          <strong>⚠️ Safety Warning: </strong>{predictionResult.recommendations.critical_warning}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB: DASHBOARD */}
+            {currentTab === 'dashboard' && (
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-2xl sm:text-3xl font-black text-slate-900">Farmer Surveillance Dashboard</h1>
+                  <p className="text-sm text-slate-500 mt-1">Aggregated farm foliar statistics and historical disease breakdown</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Evaluated Leaves</span>
+                    <div className="text-3xl font-black text-slate-900 mt-3">{stats?.total_analyzed || 0}</div>
+                    <div className="text-xs text-slate-500 mt-1">EfficientNet-B0 inference</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Healthy Samples</span>
+                    <div className="text-3xl font-black text-emerald-600 mt-3">{stats?.healthy_count || 0}</div>
+                    <div className="text-xs text-slate-500 mt-1">Asymptomatic cotton foliage</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Diseased Samples</span>
+                    <div className="text-3xl font-black text-red-600 mt-3">{stats?.diseased_count || 0}</div>
+                    <div className="text-xs text-slate-500 mt-1">Pathogen / pest damage confirmed</div>
+                  </div>
+                </div>
+
+                {/* Condition Counts */}
+                <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                  <h2 className="text-lg font-bold text-slate-900 mb-4">Diagnosis Counts by Category</h2>
+                  {stats?.condition_distribution && Object.keys(stats.condition_distribution).length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                      {Object.entries(stats.condition_distribution).map(([cond, count], i) => (
+                        <div key={i} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                          <div className="text-sm font-bold text-slate-800">{cond}</div>
+                          <div className="text-2xl font-black text-brand-600 mt-2">{count} scans</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="py-8 text-center text-slate-400 text-sm">No scans logged yet. Analyze a leaf to generate analytics.</div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* TAB: HISTORY */}
+            {currentTab === 'history' && (
+              <div className="space-y-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                  <div>
+                    <h1 className="text-2xl sm:text-3xl font-black text-slate-900">Diagnosis History</h1>
+                    <p className="text-sm text-slate-500 mt-1">Search past analyses and retrieve downloadable PDF reports</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Search condition..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="px-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    />
+                    <button
+                      onClick={() => loadHistory(searchQuery)}
+                      className="px-4 py-2 bg-slate-900 text-white rounded-xl text-sm font-bold"
+                    >
+                      Filter
+                    </button>
+                  </div>
+                </div>
+
+                {history.length > 0 ? (
+                  <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                    <table className="w-full text-left text-sm text-slate-600">
+                      <thead className="bg-slate-50 border-b border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-500">
+                        <tr>
+                          <th className="py-4 px-6">ID & Thumbnail</th>
+                          <th className="py-4 px-6">Predicted Condition</th>
+                          <th className="py-4 px-6">Confidence</th>
+                          <th className="py-4 px-6">Severity</th>
+                          <th className="py-4 px-6">Date</th>
+                          <th className="py-4 px-6 text-right">PDF Report</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {history.map((item) => (
+                          <tr key={item.id} className="hover:bg-slate-50 transition">
+                            <td className="py-4 px-6 flex items-center space-x-3">
+                              <img src={`${API_BASE}${item.image_url}`} alt="Thumb" className="w-12 h-12 rounded-lg object-cover border border-slate-200 shadow-sm" />
+                              <span className="font-bold text-slate-900">#{item.id}</span>
+                            </td>
+                            <td className="py-4 px-6 font-bold text-slate-900">
+                              <div>{item.predicted_class}</div>
+                              {item.is_cotton_leaf === false && (
+                                <span className="inline-block mt-1 text-[10px] font-bold text-rose-600 px-2 py-0.5 bg-rose-50 border border-rose-200 rounded-md">
+                                  Gate Rejected
+                                </span>
+                              )}
+                            </td>
+                            <td className="py-4 px-6">{(item.confidence * 100).toFixed(1)}%</td>
+                            <td className="py-4 px-6">
+                              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+                                {item.severity_level}
+                              </span>
+                            </td>
+                            <td className="py-4 px-6 text-xs text-slate-500">{new Date(item.created_at).toLocaleDateString()}</td>
+                            <td className="py-4 px-6 text-right">
+                              {item.is_cotton_leaf !== false && (!item.verification_status || item.verification_status === 'COTTON_LEAF_VERIFIED') ? (
+                                <a
+                                  href={`${API_BASE}/api/reports/${item.id}`}
+                                  target="_blank"
+                                  className="px-3 py-1.5 border border-slate-200 rounded-lg text-xs font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-700"
+                                >
+                                  📄 PDF Report
+                                </a>
+                              ) : (
+                                <span className="text-xs text-rose-500 font-semibold px-2.5 py-1 bg-rose-50 rounded-lg border border-rose-200">
+                                  Report Blocked
+                                </span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="bg-white rounded-3xl border border-slate-200 p-12 text-center text-slate-400 text-sm">
+                    No matching records found. Upload a leaf photo to begin logging.
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB: ADMIN */}
+            {currentTab === 'admin' && (
+              <div className="space-y-8">
+                <div>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-xs font-bold px-2.5 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded-full">
+                      Administrator Telemetry
+                    </span>
+                    <span className="text-xs text-slate-500">Platform & Farmer Activity Management</span>
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+                    {user && user.role === 'admin' ? 'Farmer Activity & Infrastructure Control' : 'AI Infrastructure & Verification Status'}
+                  </h1>
+                  <p className="text-sm text-slate-500 mt-1">
+                    {user && user.role === 'admin' 
+                      ? 'Registered farmer accounts, real-time diagnostic scan volumes, and host GPU telemetry'
+                      : 'NVIDIA GPU specifications, model architecture, and dataset audit metrics'}
+                  </p>
+                </div>
+
+                {/* If Not Admin or Not Logged In Notice */}
+                {(!user || user.role !== 'admin') && (
+                  <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200 p-6 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-purple-600 text-white rounded-2xl flex items-center justify-center font-bold text-xl shadow-md">
+                        🛡️
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-slate-900">Administrator Data Access</h3>
+                        <p className="text-xs text-slate-600 mt-0.5">
+                          Sign in with an Administrator account to view all registered farmers, their total scan counts, and live diagnostic activity logs.
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => { setAuthMode('login'); setAuthModalOpen(true); }}
+                      className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm shadow transition whitespace-nowrap"
+                    >
+                      Sign In as Admin
+                    </button>
+                  </div>
+                )}
+
+                {/* If Admin: Render Farmer Accounts Table & Real-time Scans */}
+                {user && user.role === 'admin' && (
+                  <div className="space-y-6">
+                    {/* 4 Summary Cards */}
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                      <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                        <div className="text-xs font-semibold text-slate-500">Total Registered Users</div>
+                        <div className="text-2xl font-black text-slate-900 mt-1">{adminOverview?.total_users || adminUsers.length || 0}</div>
+                        <div className="text-[11px] text-purple-600 font-bold mt-1">Farmers & Admins</div>
+                      </div>
+                      <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                        <div className="text-xs font-semibold text-slate-500">Total Scans Executed</div>
+                        <div className="text-2xl font-black text-slate-900 mt-1">{adminOverview?.total_predictions || 0}</div>
+                        <div className="text-[11px] text-brand-600 font-bold mt-1">Diagnosed in field</div>
+                      </div>
+                      <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                        <div className="text-xs font-semibold text-slate-500">Healthy Canopies</div>
+                        <div className="text-2xl font-black text-emerald-600 mt-1">{adminOverview?.healthy_count || 0}</div>
+                        <div className="text-[11px] text-slate-400 font-medium mt-1">Zero disease detected</div>
+                      </div>
+                      <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                        <div className="text-xs font-semibold text-slate-500">Diseased Foliage</div>
+                        <div className="text-2xl font-black text-rose-600 mt-1">{adminOverview?.diseased_count || 0}</div>
+                        <div className="text-[11px] text-slate-400 font-medium mt-1">Actionable treatments</div>
+                      </div>
+                    </div>
+
+                    {/* Farmer Accounts Table */}
+                    <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                      <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+                        <div>
+                          <h2 className="text-lg font-bold text-slate-900">Registered Farmer Accounts & Utilization</h2>
+                          <p className="text-xs text-slate-500 mt-0.5">Who logged into the platform and how many leaf analyses each farmer performed</p>
+                        </div>
+                        <span className="px-3 py-1 bg-purple-50 text-purple-700 font-bold text-xs rounded-full border border-purple-200">
+                          {adminUsers.length} Accounts
+                        </span>
+                      </div>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-sm text-slate-600">
+                          <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase text-slate-500 font-bold">
+                            <tr>
+                              <th className="py-3 px-6">User ID</th>
+                              <th className="py-3 px-6">Farmer Username</th>
+                              <th className="py-3 px-6">Email Address</th>
+                              <th className="py-3 px-6">Access Role</th>
+                              <th className="py-3 px-6">Account Status</th>
+                              <th className="py-3 px-6 text-right font-black text-slate-800">Total Scans</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100 text-xs">
+                            {adminUsers.map(u => (
+                              <tr key={u.id} className="hover:bg-slate-50/70 transition">
+                                <td className="py-3.5 px-6 font-bold text-slate-900">#{u.id}</td>
+                                <td className="py-3.5 px-6 font-bold text-slate-800 flex items-center space-x-2">
+                                  <span className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">👤</span>
+                                  <span>{u.username}</span>
+                                </td>
+                                <td className="py-3.5 px-6 text-slate-500">{u.email || 'N/A'}</td>
+                                <td className="py-3.5 px-6">
+                                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${u.role === 'admin' ? 'bg-purple-100 text-purple-800 border border-purple-200' : 'bg-emerald-100 text-emerald-800 border border-emerald-200'}`}>
+                                    {u.role}
+                                  </span>
+                                </td>
+                                <td className="py-3.5 px-6">
+                                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${u.is_active ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>
+                                    {u.is_active ? '● Active' : '○ Disabled'}
+                                  </span>
+                                </td>
+                                <td className="py-3.5 px-6 text-right font-black text-slate-900 text-sm">
+                                  {u.prediction_count}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    {/* What Farmers Did: Recent Scans Stream */}
+                    {adminOverview?.recent_predictions && adminOverview.recent_predictions.length > 0 && (
+                      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div className="p-6 border-b border-slate-100">
+                          <h2 className="text-lg font-bold text-slate-900">Recent Farmer Diagnostic Scans (What Farmers Did)</h2>
+                          <p className="text-xs text-slate-500 mt-0.5">Chronological record of recent cotton leaf diagnoses and severities</p>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-left text-sm text-slate-600">
+                            <thead className="bg-slate-50 border-b border-slate-200 text-xs uppercase text-slate-500 font-bold">
+                              <tr>
+                                <th className="py-3 px-6">Scan ID</th>
+                                <th className="py-3 px-6">Photograph</th>
+                                <th className="py-3 px-6">Diagnosed Condition</th>
+                                <th className="py-3 px-6">Confidence</th>
+                                <th className="py-3 px-6">Severity Grade</th>
+                                <th className="py-3 px-6 text-right">Timestamp</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100 text-xs">
+                              {adminOverview.recent_predictions.map(item => (
+                                <tr key={item.id} className="hover:bg-slate-50/70 transition">
+                                  <td className="py-3 px-6 font-bold text-slate-900">#{item.id}</td>
+                                  <td className="py-3 px-6">
+                                    <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
+                                      <img src={item.image_url} alt="" className="w-full h-full object-cover" />
+                                    </div>
+                                  </td>
+                                  <td className="py-3 px-6 font-bold text-slate-800">{item.predicted_class}</td>
+                                  <td className="py-3 px-6 font-semibold text-brand-600">{(item.confidence * 100).toFixed(1)}%</td>
+                                  <td className="py-3 px-6">
+                                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                                      item.severity_level === 'CRITICAL' || item.severity_level === 'HIGH' ? 'bg-rose-100 text-rose-800' :
+                                      item.severity_level === 'MODERATE' ? 'bg-amber-100 text-amber-800' :
+                                      item.severity_level === 'LOW' ? 'bg-blue-100 text-blue-800' : 'bg-emerald-100 text-emerald-800'
+                                    }`}>
+                                      {item.severity_level || 'NONE'}
+                                    </span>
+                                  </td>
+                                  <td className="py-3 px-6 text-right text-slate-400">
+                                    {new Date(item.created_at).toLocaleString()}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Platform Activity Logs */}
+                    {adminLogs && adminLogs.length > 0 && (
+                      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div className="p-6 border-b border-slate-100">
+                          <h2 className="text-lg font-bold text-slate-900">Platform Activity & Security Audit Trail</h2>
+                          <p className="text-xs text-slate-500 mt-0.5">Real-time log of logins, scans, and system operations</p>
+                        </div>
+                        <div className="divide-y divide-slate-100 text-xs">
+                          {adminLogs.map((log, idx) => (
+                            <div key={idx} className="p-4 flex items-center justify-between hover:bg-slate-50">
+                              <div className="flex items-center space-x-3">
+                                <span className={`px-2 py-0.5 rounded-md font-mono text-[10px] font-bold ${
+                                  log.action === 'USER_LOGIN' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
+                                  log.action === 'LEAF_SCAN' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' :
+                                  'bg-slate-100 text-slate-700'
+                                }`}>
+                                  {log.action}
+                                </span>
+                                <span className="font-medium text-slate-800">{log.details || log.resource}</span>
+                              </div>
+                              <span className="text-slate-400 text-[11px]">{new Date(log.created_at).toLocaleTimeString()}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <h2 className="text-lg font-bold text-slate-900 mb-2">Hardware Acceleration</h2>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">Dedicated GPU</span>
+                      <span className="font-bold text-slate-800">NVIDIA GeForce RTX 3050 Laptop GPU</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">VRAM Allocation</span>
+                      <span className="font-bold text-slate-800">6 GB Dedicated (50W Profile)</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">CUDA Status</span>
+                      <span className="font-bold text-emerald-600">Active (CUDA 13.2)</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">Training Speed</span>
+                      <span className="font-bold text-slate-800">~26 seconds / epoch (AMP FP16)</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <h2 className="text-lg font-bold text-slate-900 mb-2">Classification Model Performance</h2>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">Architecture</span>
+                      <span className="font-bold text-slate-800">EfficientNet-B0 (ImageNet Pretrained)</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">Untouched Test Accuracy</span>
+                      <span className="font-black text-emerald-600">97.82% (321 test images)</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">Test Macro F1-Score</span>
+                      <span className="font-black text-emerald-600">0.9754</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-slate-100 text-sm">
+                      <span className="text-slate-500">Checkpoint Path</span>
+                      <span className="font-mono text-xs text-slate-600">artifacts/checkpoints/classification/best_model.pt</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                  <h3 className="text-lg font-bold text-slate-900">Dataset Splits & Leakage-Free Verification</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                      <div className="text-3xl font-black text-slate-900">1,492</div>
+                      <div className="text-xs text-slate-500 font-semibold mt-1">Training Samples (70%)</div>
+                    </div>
+                    <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                      <div className="text-3xl font-black text-slate-900">319</div>
+                      <div className="text-xs text-slate-500 font-semibold mt-1">Validation Samples (15%)</div>
+                    </div>
+                    <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                      <div className="text-3xl font-black text-emerald-600">321</div>
+                      <div className="text-xs text-slate-500 font-semibold mt-1">Untouched Test Samples (15%)</div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-500">
+                    Source: <code>SAR-CLD-2024 (2,132 images)</code>. All confirmed multi-angle image pairs are isolated into common groups to ensure zero cross-split data leakage.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* TAB: MODELS & BENCHMARKS */}
+            {currentTab === 'models' && (
+              <div className="space-y-8 max-w-6xl mx-auto">
+                <div>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-xs font-bold px-2.5 py-1 bg-brand-50 text-brand-700 border border-brand-200 rounded-full">
+                      Phase 2 &amp; 3 ML Rigor
+                    </span>
+                    <span className="text-xs text-slate-500">Dual-Task Foliar Deep Learning</span>
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">AI Model Architecture &amp; Comparative Benchmarks</h1>
+                  <p className="text-sm text-slate-500 mt-1">Authentic hardware latency, VRAM footprint, and diagnostic validation metrics on NVIDIA RTX 3050</p>
+                </div>
+
+                {/* 3 Model Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Model 1: Classifier */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] font-black tracking-wider uppercase px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md">
+                          Production Model
+                        </span>
+                        <h3 className="text-lg font-black text-slate-900 mt-2">EfficientNet-B0</h3>
+                        <p className="text-xs text-slate-500">7-Class Foliar Disease Classifier</p>
+                      </div>
+                      <span className="text-2xl">🧠</span>
+                    </div>
+                    <div className="space-y-2 pt-2 border-t border-slate-100 text-xs">
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Parameters</span>
+                        <span className="font-bold text-slate-800">4,016,515 (4.02M)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Val Accuracy (319 imgs)</span>
+                        <span className="font-black text-emerald-600">98.43%</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Val Macro-F1</span>
+                        <span className="font-black text-emerald-600">0.9839</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">GPU Inference Latency</span>
+                        <span className="font-bold text-slate-800">8.80 ms (571 FPS)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Peak GPU VRAM</span>
+                        <span className="font-bold text-slate-800">355.4 MB</span>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-slate-500">Input Resolution</span>
+                        <span className="font-mono text-slate-600">224 x 224 x 3</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Model 2: Segmentor */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] font-black tracking-wider uppercase px-2 py-0.5 bg-blue-50 text-blue-700 border border-blue-200 rounded-md">
+                          Foliar Segmentor
+                        </span>
+                        <h3 className="text-lg font-black text-slate-900 mt-2">UNet-ResNet34</h3>
+                        <p className="text-xs text-slate-500">3-Class Semantic Foliar Masking</p>
+                      </div>
+                      <span className="text-2xl">🌿</span>
+                    </div>
+                    <div className="space-y-2 pt-2 border-t border-slate-100 text-xs">
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Encoder / Library</span>
+                        <span className="font-bold text-slate-800">ResNet-34 (SMP MIT)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Leaf-Class Dice</span>
+                        <span className="font-black text-blue-600">0.8656 (86.6%)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Leaf-Class IoU</span>
+                        <span className="font-black text-blue-600">0.8056 (80.6%)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Healthy Leaf FP Ratio</span>
+                        <span className="font-bold text-emerald-600">1.31% (High Specificity)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">GPU Inference Latency</span>
+                        <span className="font-bold text-slate-800">26.96 ms</span>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-slate-500">Input Resolution</span>
+                        <span className="font-mono text-slate-600">512 x 512 x 3</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Model 3: Explainer */}
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] font-black tracking-wider uppercase px-2 py-0.5 bg-amber-50 text-amber-700 border border-amber-200 rounded-md">
+                          XAI Explainer
+                        </span>
+                        <h3 className="text-lg font-black text-slate-900 mt-2">Grad-CAM</h3>
+                        <p className="text-xs text-slate-500">Target Layer: features[-1]</p>
+                      </div>
+                      <span className="text-2xl">🔥</span>
+                    </div>
+                    <div className="space-y-2 pt-2 border-t border-slate-100 text-xs">
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Methodology</span>
+                        <span className="font-bold text-slate-800">Selvaraju et al. (2017)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Receptive Field</span>
+                        <span className="font-bold text-slate-800">7 x 7 Feature Maps</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">GPU Explainer Latency</span>
+                        <span className="font-black text-emerald-600">52.02 ms (Budget &lt; 300ms)</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">CPU Fallback Latency</span>
+                        <span className="font-bold text-slate-800">115.14 ms</span>
+                      </div>
+                      <div className="flex justify-between py-1 border-b border-slate-50">
+                        <span className="text-slate-500">Visual Stacks</span>
+                        <span className="font-bold text-slate-800">5 Presentation Layers</span>
+                      </div>
+                      <div className="flex justify-between py-1">
+                        <span className="text-slate-500">Colormap</span>
+                        <span className="font-mono text-slate-600">Turbo / Jet (45% Alpha)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Multi-Architecture Benchmark Table */}
+                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                  <h3 className="text-lg font-black text-slate-900">Multi-Architecture Comparative Benchmark (RTX 3050 Hardware Run)</h3>
+                  <p className="text-xs text-slate-500">
+                    Systematic evaluation of production candidate backbones under identical train/validation splits and FP16 inference.
+                  </p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs border-collapse">
+                      <thead>
+                        <tr className="bg-slate-50 border-y border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
+                          <th className="py-3 px-4">Architecture</th>
+                          <th className="py-3 px-4">Parameters</th>
+                          <th className="py-3 px-4">Checkpoint</th>
+                          <th className="py-3 px-4">Val Acc</th>
+                          <th className="py-3 px-4">Macro F1</th>
+                          <th className="py-3 px-4">GPU Latency</th>
+                          <th className="py-3 px-4">CPU Latency</th>
+                          <th className="py-3 px-4">Peak VRAM</th>
+                          <th className="py-3 px-4">Throughput</th>
+                          <th className="py-3 px-4">Verdict</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        <tr className="bg-emerald-50/50 font-semibold">
+                          <td className="py-3 px-4 text-emerald-900 font-bold">EfficientNet-B0 (Ours)</td>
+                          <td className="py-3 px-4">4.02 M</td>
+                          <td className="py-3 px-4">46.4 MB</td>
+                          <td className="py-3 px-4 text-emerald-700 font-bold">98.43%</td>
+                          <td className="py-3 px-4 text-emerald-700 font-bold">0.9839</td>
+                          <td className="py-3 px-4">8.80 ms</td>
+                          <td className="py-3 px-4">19.47 ms</td>
+                          <td className="py-3 px-4">355.4 MB</td>
+                          <td className="py-3 px-4 font-bold text-slate-900">571.2 FPS</td>
+                          <td className="py-3 px-4"><span className="px-2 py-0.5 bg-emerald-600 text-white rounded-md text-[10px] font-bold">PRODUCTION</span></td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 px-4 font-medium text-slate-800">EfficientNet-B2</td>
+                          <td className="py-3 px-4">7.71 M</td>
+                          <td className="py-3 px-4">29.4 MB</td>
+                          <td className="py-3 px-4">98.12%</td>
+                          <td className="py-3 px-4">0.9805</td>
+                          <td className="py-3 px-4">11.84 ms</td>
+                          <td className="py-3 px-4">48.57 ms</td>
+                          <td className="py-3 px-4">386.0 MB</td>
+                          <td className="py-3 px-4">373.7 FPS</td>
+                          <td className="py-3 px-4 text-slate-400">Rejected (Higher latency)</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 px-4 font-medium text-slate-800">ResNet-50</td>
+                          <td className="py-3 px-4">23.52 M</td>
+                          <td className="py-3 px-4">89.7 MB</td>
+                          <td className="py-3 px-4">97.18%</td>
+                          <td className="py-3 px-4">0.9702</td>
+                          <td className="py-3 px-4">6.52 ms</td>
+                          <td className="py-3 px-4">63.33 ms</td>
+                          <td className="py-3 px-4">443.3 MB</td>
+                          <td className="py-3 px-4">268.8 FPS</td>
+                          <td className="py-3 px-4 text-slate-400">Rejected (Overparameterized)</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 px-4 font-medium text-slate-800">MobileNet-V3-Large</td>
+                          <td className="py-3 px-4">4.21 M</td>
+                          <td className="py-3 px-4">16.1 MB</td>
+                          <td className="py-3 px-4">96.55%</td>
+                          <td className="py-3 px-4">0.9638</td>
+                          <td className="py-3 px-4">6.76 ms</td>
+                          <td className="py-3 px-4">14.77 ms</td>
+                          <td className="py-3 px-4">270.7 MB</td>
+                          <td className="py-3 px-4">940.2 FPS</td>
+                          <td className="py-3 px-4 text-slate-400">Rejected (Lower macro F1)</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Academic References */}
+                <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-xs text-slate-600 space-y-2">
+                  <h4 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Academic Literature References:</h4>
+                  <ul className="list-disc pl-4 space-y-1">
+                    <li><strong>EfficientNet:</strong> Tan, M., &amp; Le, Q. (2019). <em>EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks</em>. ICML.</li>
+                    <li><strong>U-Net Architecture:</strong> Ronneberger, O., Fischer, P., &amp; Brox, T. (2015). <em>U-Net: Convolutional Networks for Biomedical Image Segmentation</em>. MICCAI.</li>
+                    <li><strong>Grad-CAM:</strong> Selvaraju, R. R., et al. (2017). <em>Grad-CAM: Visual Explanations from Deep Networks via Gradient-Based Localization</em>. ICCV.</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {/* TAB: ABOUT PROJECT */}
+            {currentTab === 'about' && (
+              <div className="space-y-8 max-w-4xl mx-auto">
+                <div className="text-center space-y-3 pb-6 border-b border-slate-200">
+                  <span className="text-xs font-black tracking-widest uppercase px-3 py-1 bg-brand-100 text-brand-800 rounded-full">
+                    B.Tech Final Year Capstone Project
+                  </span>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 leading-tight max-w-3xl mx-auto">
+                    Leaf Disease Analysis and Estimation Using the U-Net and YOLO Based Detection
+                  </h1>
+                  <p className="text-base text-slate-600 max-w-2xl mx-auto">
+                    Intelligent Cotton Leaf Disease Detection, Segmentation, and Severity Estimation Platform
+                  </p>
+                  <p className="text-xs text-slate-400 font-semibold">
+                    Department of Computer Science &amp; Engineering • Academic Year 2024–2025 / 2025–2026
+                  </p>
+                </div>
+
+                {/* Project Team Members */}
+                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                      <span>👥</span> Project Team Members
+                    </h3>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 bg-brand-50 text-brand-700 rounded-lg border border-brand-200/60">
+                      B.Tech Major Project Team
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3.5">
+                      <div className="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        1
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-bold text-slate-900 text-sm">Piyush Kumar Panda</h4>
+                        <p className="text-[11px] text-slate-500 font-medium">Team Member</p>
+                      </div>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3.5">
+                      <div className="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        2
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-bold text-slate-900 text-sm">Akash Kumar Pattnaik</h4>
+                        <p className="text-[11px] text-slate-500 font-medium">Team Member</p>
+                      </div>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3.5">
+                      <div className="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        3
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-bold text-slate-900 text-sm">Juhi Gupta</h4>
+                        <p className="text-[11px] text-slate-500 font-medium">Team Member</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Core Innovation Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl">1</div>
+                    <h3 className="font-bold text-slate-900 text-base">Decoupled Physical Severity Metric</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Unlike commercial apps that conflate neural softmax confidence with disease extent, CottonGuard AI calculates true 2D physical damage percentage strictly within segmented organic leaf boundaries.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl">2</div>
+                    <h3 className="font-bold text-slate-900 text-base">Zero-Leakage Multi-Camera Dataset</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Engineered group-isolated splitting across 2,132 cotton foliage images, ensuring multi-angle captures never cross train, validation, or untouched test partitions.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl">3</div>
+                    <h3 className="font-bold text-slate-900 text-base">Multi-Layer Explainable AI (XAI)</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Integrates Grad-CAM gradient pooling with U-Net lesion contours to provide transparent, multi-layer visual diagnostic verification for agricultural officers.
+                    </p>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center font-bold text-xl">4</div>
+                    <h3 className="font-bold text-slate-900 text-base">ICAR-CICR Agronomic Decision Support</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Synthesizes expert advisories from India's Central Institute for Cotton Research, offering severity-tiered cultural, biological, and chemical triage guidelines.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Technical Stack Badges */}
+                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                  <h3 className="text-base font-bold text-slate-900">End-to-End Technology Stack</h3>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">PyTorch 2.15+cu132</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">CUDA 13.2 / NVIDIA RTX 3050</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">FastAPI 0.115</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">SQLAlchemy &amp; SQLite</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">ReportLab PDF Engine</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">Segmentation Models PyTorch (SMP)</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">Albumentations</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">React 18 &amp; Vite</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">Tailwind CSS</span>
+                    <span className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-xl font-semibold border border-slate-200">Lucide Icons</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </main>
+
+          {/* Auth Modal */}
+          {authModalOpen && (
+            <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+              <div className="bg-white max-w-md w-full rounded-3xl p-8 border border-slate-200 shadow-2xl relative">
+                <button
+                  onClick={() => setAuthModalOpen(false)}
+                  className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold"
+                >
+                  ✕
+                </button>
+
+                <div className="text-center mb-6">
+                  <div className="w-12 h-12 bg-brand-600 rounded-2xl mx-auto flex items-center justify-center text-white text-2xl font-bold mb-3 shadow-md">
+                    🍃
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900">
+                    {authMode === 'login' ? 'Farmer Portal Login' : 'Create Farmer Account'}
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1">
+                    {authMode === 'login' ? 'Sign in to analyze leaves and log diagnostic history' : 'Register to access AI precision agriculture tools'}
+                  </p>
+                </div>
+
+                <div className="flex bg-slate-100 p-1 rounded-xl mb-6">
+                  <button
+                    type="button"
+                    onClick={() => { setAuthMode('login'); setAuthError(''); }}
+                    className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${authMode === 'login' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600'}`}
+                  >
+                    Sign In
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setAuthMode('register'); setAuthError(''); }}
+                    className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${authMode === 'register' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600'}`}
+                  >
+                    Register
+                  </button>
+                </div>
+
+                {authError && (
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs">
+                    {authError}
+                  </div>
+                )}
+
+                <form onSubmit={handleAuthSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Username</label>
+                    <input
+                      type="text"
+                      required
+                      value={authUsername}
+                      onChange={(e) => setAuthUsername(e.target.value)}
+                      placeholder="Username"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    />
+                  </div>
+
+                  {authMode === 'register' && (
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email</label>
+                      <input
+                        type="email"
+                        required
+                        value={authEmail}
+                        onChange={(e) => setAuthEmail(e.target.value)}
+                        placeholder="farmer@example.com"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                      />
+                    </div>
+                  )}
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Password</label>
+                    <input
+                      type="password"
+                      required
+                      value={authPassword}
+                      onChange={(e) => setAuthPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={authLoading}
+                    className="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-md transition disabled:opacity-50 text-sm"
+                  >
+                    {authLoading ? 'Authenticating...' : authMode === 'login' ? 'Sign In' : 'Create Account'}
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {/* Footer */}
+          <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+            Cotton Leaf AI — Precision Agriculture Platform • Final Year Engineering Project • EfficientNet-B0 & PyTorch CUDA
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

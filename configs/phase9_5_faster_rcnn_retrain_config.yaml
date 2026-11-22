@@ -1,0 +1,129 @@
+# CottonGuard AI — Phase 9.5 Faster R-CNN Retrain Configuration
+# Architecture: TorchVision Faster R-CNN ResNet-50 FPN V2 with Ignore-Aware RPN & RoIHeads
+# Target Hardware: NVIDIA GeForce RTX 3050 Laptop GPU (6 GB VRAM)
+# License: Permissive BSD-3-Clause / Apache-2.0 (Zero copyleft AGPL/GPL dependencies)
+
+experiment:
+  name: "phase9_5_faster_rcnn_ignore_retrain"
+  run_id: "EXP-FRCNN-20261117-01"
+  phase: "Phase 9.5 Retrain with Tier 2 Ignore Supervision"
+  reproducibility_seed: 42
+  deterministic: true
+
+model:
+  architecture: "fasterrcnn_resnet50_fpn_v2"
+  torchvision_version: "0.29.2+cu132"
+  initialization_provenance: "FasterRCNN_ResNet50_FPN_V2_Weights.COCO_V1"
+  weights_file: "fasterrcnn_resnet50_fpn_v2_coco-dd69338a.pth"
+  weights_sha256: "DD69338A24B8D7381807E247652BDC356325BCBAF1CD3E092E00E0A1A58706BF"
+  num_classes: 7
+  background_label: 0
+  trainable_backbone_layers: 3  # Train res3, res4, res5; freeze res1, res2
+  enable_ignore_regions: true
+  rpn_ignore_threshold: 0.30
+  roi_ignore_threshold: 0.30
+  rpn_pre_nms_top_n_train: 2000
+  rpn_post_nms_top_n_train: 1000
+  rpn_pre_nms_top_n_test: 1000
+  rpn_post_nms_top_n_test: 1000
+  rpn_nms_thresh: 0.7
+  box_score_thresh: 0.05
+  box_nms_thresh: 0.5
+  box_detections_per_img: 100
+
+class_mapping:
+  0: "background"
+  1: "Bacterial Blight"
+  2: "Curl Virus"
+  3: "Herbicide Growth Damage"
+  4: "Leaf Hopper Jassids"
+  5: "Leaf Redding"
+  6: "Leaf Variegation"
+  healthy_leaf_role: "Negative-control whole images containing 0 foreground bounding boxes"
+
+dataset:
+  manifest_path: "artifacts/manifests/consolidated_100_annotation_manifest.csv"
+  manifest_sha256: "faef40caf326c6f958eebb1813c37a2d5561947003bb5c3bc78c177a3743e285"
+  data_dir: "data/detection_consolidated_100"
+  images_dir: "data/detection_consolidated_100/images"
+  labels_dir: "data/detection_consolidated_100/labels"
+  ignore_dir: "data/detection_consolidated_100/ignore_labels"
+  image_size: [800, 800]
+  total_samples: 100
+  train_samples: 70
+  val_samples: 30
+  train_split_sha256: "4dcbac115a2e717ce10229ff1309ab7f5d3bc8f6fa5515bfa170934bfd9c04a7"
+  val_split_sha256: "78b216ea96204ba8ec59b70e3866ba54edbe1a4b33e0c17b967edd0f0061dff3"
+  group_isolation_verified: true
+  total_focal_boxes: 1009
+  total_ignore_boxes: 130
+  train_focal_boxes: 683
+  train_ignore_boxes: 62
+  val_focal_boxes: 326
+  val_ignore_boxes: 68
+  healthy_control_samples: 15
+  healthy_bounding_boxes: 0
+  empty_healthy_targets: true
+
+training:
+  batch_size: 2
+  num_workers: 0  # 0 on Windows to eliminate multi-processing socket overhead
+  max_epochs: 30
+  optimizer:
+    type: "AdamW"
+    lr: 0.0001
+    beta1: 0.9
+    beta2: 0.999
+    weight_decay: 0.0001
+  lr_scheduler:
+    type: "WarmupCosineAnnealingLR"
+    warmup_epochs: 3
+    warmup_steps: 105  # 3 epochs * 35 batches/epoch
+    total_steps: 1050  # 30 epochs * 35 batches/epoch
+    warmup_factor: 0.333333
+    base_lr: 0.0001
+    min_lr: 0.000001
+    stepping: "per_batch"
+    amp_skipped_step_protection: true
+  gradient_clipping:
+    enabled: true
+    max_norm: 10.0
+  mixed_precision:
+    enabled: true
+    dtype: "float16"
+    grad_scaler: true
+    grad_scaler_init_scale: 1024.0
+  loss_components:
+    - "loss_classifier"  # Fast R-CNN classification
+    - "loss_box_reg"     # Fast R-CNN box regression
+    - "loss_objectness"  # RPN foreground vs background
+    - "loss_rpn_box_reg" # RPN proposal box regression
+
+hardware:
+  target_gpu: "NVIDIA GeForce RTX 3050 Laptop GPU"
+  total_vram_gb: 6.0
+  expected_vram_peak_gb: 2.8
+  oom_handling:
+    catch_cuda_oom: true
+    clear_cache_on_error: true
+    cpu_fallback_eval: true
+    silent_training_fallback: false
+
+evaluation:
+  eval_batch_size: 1
+  reporting_standard: "30-image validation metrics (NOT independent test benchmark)"
+  iou_threshold_primary: 0.50
+  iou_threshold_range: [0.50, 0.95, 0.05]
+  checkpoint_policy:
+    primary_metric: "val_map50"
+    secondary_metric: "val_composite_loss"
+    mode: "max"
+    save_best_only: true
+    best_checkpoint_path: "artifacts/checkpoints/detection/phase9_5_retrain/best_faster_rcnn_ignore.pt"
+    latest_checkpoint_path: "artifacts/checkpoints/detection/phase9_5_retrain/latest_faster_rcnn_ignore.pt"
+    early_stopping_patience: 5
+
+preservation_and_rollback:
+  baseline_checkpoint_protected: "artifacts/checkpoints/detection/best_faster_rcnn.pt"
+  baseline_sha256: "01d82b3282509c543c1bd3a48a46cc03581b3ce573a8d8b77b85be8e2b36b5d2"
+  rollback_trigger: "If retrained model val mAP@0.50 regresses or fails stability checks, baseline checkpoint remains production default."

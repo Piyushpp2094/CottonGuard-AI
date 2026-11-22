@@ -1,0 +1,44 @@
+[
+  {
+    "disease_class": "Bacterial Blight",
+    "filename": "BBC00226.jpg",
+    "url": "/static/samples/BBC00226.jpg",
+    "description": "Standard Bacterial Blight reference leaf"
+  },
+  {
+    "disease_class": "Curl Virus",
+    "filename": "CV00248.jpg",
+    "url": "/static/samples/CV00248.jpg",
+    "description": "Standard Curl Virus reference leaf"
+  },
+  {
+    "disease_class": "Healthy Leaf",
+    "filename": "HL00031.jpg",
+    "url": "/static/samples/HL00031.jpg",
+    "description": "Standard Healthy Leaf reference leaf"
+  },
+  {
+    "disease_class": "Herbicide Growth Damage",
+    "filename": "HGD00202.jpg",
+    "url": "/static/samples/HGD00202.jpg",
+    "description": "Standard Herbicide Growth Damage reference leaf"
+  },
+  {
+    "disease_class": "Leaf Hopper Jassids",
+    "filename": "LHJ00185.jpg",
+    "url": "/static/samples/LHJ00185.jpg",
+    "description": "Standard Leaf Hopper Jassids reference leaf"
+  },
+  {
+    "disease_class": "Leaf Reddening",
+    "filename": "LR00098.jpg",
+    "url": "/static/samples/LR00098.jpg",
+    "description": "Standard Leaf Reddening reference leaf"
+  },
+  {
+    "disease_class": "Leaf Variegation",
+    "filename": "LV00044.jpg",
+    "url": "/static/samples/LV00044.jpg",
+    "description": "Standard Leaf Variegation reference leaf"
+  }
+]
