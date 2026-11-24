@@ -110,3 +110,4 @@ artifacts/**
 *.h5
 *.safetensors
 *.bin
+cloudflared.exe
