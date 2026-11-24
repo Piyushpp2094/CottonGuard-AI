@@ -34,12 +34,14 @@ matplotlib>=3.9.0,<4.0.0
 pyyaml>=6.0.0,<7.0.0
 tqdm>=4.66.0,<5.0.0
 
-# Deep Learning (PyTorch)
+# Deep Learning (PyTorch & Segmentation)
 # Default CPU wheels for standard installation:
 # For CUDA acceleration (e.g. CUDA 12.1+), install via:
 # pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 torch>=2.1.0
 torchvision>=0.16.0
+segmentation-models-pytorch>=0.3.3
+albumentations>=2.0.0
 
 # Testing & Development Quality Assurance
 pytest>=8.3.0,<9.0.0

@@ -122,7 +122,7 @@ async def unhandled_exception_handler(_request: Request, _exc: Exception):
     )
 
 
-# Local CORS configuration allowing Vite frontend (:5173) and backend static (:8000)
+# CORS configuration allowing Vite frontend (:5173), backend static (:8000), HuggingFace (:7860), and any cloud origin
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -130,7 +130,10 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
+        "http://localhost:7860",
+        "http://127.0.0.1:7860",
     ],
+    allow_origin_regex=r"^https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -154,6 +157,7 @@ app.include_router(admin.router)
 
 
 @app.get("/")
+@app.head("/")
 def root():
     """Serves the fallback web app if present or platform metadata JSON."""
     index_file = STATIC_DIR / "index.html"
@@ -169,6 +173,7 @@ def root():
 
 
 @app.get("/app")
+@app.head("/app")
 def serve_app():
     """Direct route to the built-in static dashboard."""
     index_file = STATIC_DIR / "index.html"
@@ -200,6 +205,7 @@ def predict_sync_alias(
 
 
 @app.get("/api/health")
+@app.head("/api/health")
 def health_check(db: Session = Depends(get_db)) -> Dict[str, Any]:
     """Returns live GPU/CUDA telemetry, DB connectivity, and readiness for all AI models."""
     db_ok = False

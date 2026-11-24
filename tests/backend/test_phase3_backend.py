@@ -77,7 +77,9 @@ class TestPhase3Backend(unittest.TestCase):
             Image.new("RGB", size, color=color).save(buf, format=fmt)
             buf.seek(0)
             return buf
-        cand = Path("D:/Main_Project/dataset/SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection/Original Dataset/Bacterial Blight/BBC00045.jpg")
+        cand = PROJECT_ROOT / "backend" / "app" / "static" / "samples" / "BBC00226.jpg"
+        if not cand.exists():
+            cand = Path("D:/Main_Project/dataset/SAR-CLD-2024 A Comprehensive Dataset for Cotton Leaf Disease Detection/Original Dataset/Bacterial Blight/BBC00045.jpg")
         if cand.exists():
             buf = io.BytesIO()
             with Image.open(cand) as im:

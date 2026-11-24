@@ -92,9 +92,10 @@ def build_unet_resnet34(
     device: Optional[torch.device] = None,
 ) -> nn.Module:
     """Instantiates SMP U-Net (ResNet-34 encoder) and optionally loads trained checkpoint weights."""
+    eff_encoder_weights = None if checkpoint_path is not None else encoder_weights
     model = smp.Unet(
         encoder_name=encoder_name,
-        encoder_weights=encoder_weights,
+        encoder_weights=eff_encoder_weights,
         in_channels=3,
         classes=num_classes,
     )

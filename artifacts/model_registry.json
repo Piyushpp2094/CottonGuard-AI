@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-11-23T16:33:25.424910+00:00",
+  "generated_at_utc": "2026-11-24T14:32:27.372365+00:00",
   "models": {
     "classifier": {
       "name": "EfficientNet-B0",
@@ -14,7 +14,7 @@
       "provenance_verified": true,
       "trained_on": "SAR-CLD-2024",
       "annotation_requirements": "none",
-      "last_updated": "2026-11-23T16:33:25.424910+00:00",
+      "last_updated": "2026-11-24T14:32:27.372365+00:00",
       "classes": [
         "Bacterial Blight",
         "Curl Virus",
@@ -36,7 +36,7 @@
       "map50_95": 0.0853,
       "best_epoch": 13,
       "annotation_requirements": "CVAT bounding-box annotations available for pilot (50 images). Expanded annotations recommended for production training.",
-      "last_updated": "2026-11-23T16:33:25.424910+00:00"
+      "last_updated": "2026-11-24T14:32:27.372365+00:00"
     },
     "segmentor": {
       "name": "UNet-ResNet34",
@@ -48,7 +48,7 @@
       "dice": 0.6844733333333333,
       "iou": 0.59351,
       "annotation_requirements": "CVAT segmentation mask exports available for pilot (50 masks).",
-      "last_updated": "2026-11-23T16:33:25.424910+00:00"
+      "last_updated": "2026-11-24T14:32:27.372365+00:00"
     }
   }
 }

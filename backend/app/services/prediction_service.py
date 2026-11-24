@@ -306,7 +306,7 @@ class PredictionService:
             print(f"[PREDICTION SERVICE] Loading U-Net segmentation model from {self.unet_ckpt}...")
             try:
                 # Try UNet-ResNet34 (active Phase 4/8 architecture)
-                self.unet = build_unet_resnet34(num_classes=3, checkpoint_path=self.unet_ckpt, device=self.device)
+                self.unet = build_unet_resnet34(num_classes=3, encoder_weights=None, checkpoint_path=self.unet_ckpt, device=self.device)
                 self.unet.eval()
                 print(f"[PREDICTION SERVICE] U-Net ResNet-34 loaded successfully.")
             except Exception as e_resnet:
